@@ -1,6 +1,8 @@
 import csv
 import collections
 
+# source: https://stackoverflow.com/questions/9247241/python-algorithm-of-counting-occurrence-of-specific-word-in-csv
+
 course1 = collections.Counter()
 with open('studentenenvakken.csv') as input_file:
 	for row in csv.reader(input_file, delimiter = ','):
