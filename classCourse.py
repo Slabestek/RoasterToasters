@@ -12,12 +12,11 @@ class course:
 		self.studentNumbers.append(studentNumber)
 
 
-heuristieken = course("heuristieken", 2, 1, 0)
+heuristieken = course("heuristieken")
 
-for i in range(10):
-	heuristieken.studentNumbers = i
 
 print heuristieken
+print len(heuristieken.studentNumbers)
 
 
 
