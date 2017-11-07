@@ -13,4 +13,12 @@ with open('studentenenvakken.csv') as input_file:
 		course1[row[7]] += 1
 
 print "Number of students in course: %s" % course1['Calculus 2']
-print course1.most_common()
+most_common = course1.most_common()
+print most_common
+course_students = open("course_students.csv", "wb")
+with course_students:
+    writer = csv.writer(course_students)
+    writer.writerow(['Vak', 'Aantal Leerlingen'])
+    for i in range(29):
+    	writer.writerow([most_common[i + 1]])
+
