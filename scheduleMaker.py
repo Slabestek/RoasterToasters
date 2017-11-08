@@ -12,12 +12,16 @@ classrooms = range(7)
 course = courseReader("courses.csv")
 courseCounter = 0
 
-for item in course:
-	seminar = course[item].practical
-print seminar
+# for item in course:
+# 	seminar = course[item].practical
+# print seminar
 
 courseItems = course.items()
 # print courseItems
+
+# for key, value in itertools.
+print course['Heuristieken 1'].lecture
+
 
 for day in days:
 # 	# print "dit is day {}".format(day)
@@ -26,10 +30,15 @@ for day in days:
 		# print "dit is timeslot {}".format(timeslot)
 		scheduleList[day].append([])
 		for classroom in classrooms:
+			# print int(course['{}'.format(courseItems[courseCounter][1])].lecture)
 			# if courseCounter < course[-1]:
+
+			# for lecture in range(int(course['{}'.format(courseItems[courseCounter][1])].lecture)):	
 			if courseCounter < len(course) - 1:
 				scheduleList[day][timeslot].append(courseItems[courseCounter][1])
 			courseCounter += 1
+			# print courseCounter
+
 
 
 print scheduleList
