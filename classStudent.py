@@ -1,6 +1,6 @@
 import csv
 
-class student:
+class Student:
 	def __init__(self, lastName, firstName, studentNumber, course = []):
 		self.lastName = lastName
 		self.firstName = firstName
@@ -10,6 +10,23 @@ class student:
 	def __repr__(self):
 		name = self.firstName + ' ' + self.lastName
 		return name
+
+
+def studentReader(file):
+	#csv inlezen in python
+	csvRows = []
+
+	# read in csv of courses
+	with open(file, 'r') as f:
+		next(f)
+		reader = csv.reader(f)
+		for row in reader:
+			csvRows.append(row)
+
+	#voor elke student een object maken
+		#waarden van elke student toevoegen aan object
+	students = {row}
+
 '''
 myList = []
 	

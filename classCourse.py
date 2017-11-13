@@ -1,8 +1,8 @@
 import csv
 
-class course:
+class Course:
 	def __init__(self, name, lecture = 0, seminar = 0, seminarCap = None, practical = 0, 
-				practicalCap = None, studentNumbers = {}, activities = 0, students = 0):
+				practicalCap = None, studentNumbers = {}, activities = [], students = 0):
 		self.name = name
 		self.lecture = lecture
 		self.seminar = seminar
@@ -29,10 +29,7 @@ class course:
 		return self.name
 
 	def enroll(self, studentNumber):
-		self.studentNumbers.append(studentNumber)
-
-
-heuristieken = course("heuristieken")
+		self.studentNumbers['studentNumber'] = 
 
 
 def courseReader(file):
@@ -47,12 +44,6 @@ def courseReader(file):
 			csvRows.append(row)
 
 	# make a dictionary with a key-value pair for each course
-	courses = {row[0]: course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 
+	courses = {row[0]: Course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 
 		for row in csvRows}
 	return courses
-
-courses = courseReader('courses.csv')
-
-
-
-	
