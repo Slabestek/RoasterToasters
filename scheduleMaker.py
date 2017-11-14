@@ -2,13 +2,11 @@
 from classCourse import courseReader
 # from classStudent import TODO
 # from courseCounter import TODO
+import scheduleRange
 
 # make empty list 
 scheduleList = []
 
-days = range(5)
-timeslots = range(4)
-classrooms = range(7)
 course = courseReader("courses.csv")
 courseCounter = 0
 
