@@ -12,15 +12,6 @@ class Student:
 		return name
 
 
-def studentReader(file):
-	#csv inlezen in python
-	csvRows = []
-
-
-
-	#voor elke student een object maken
-		#waarden van elke student toevoegen aan object
-	students = {row}
 
 '''
 myList = []

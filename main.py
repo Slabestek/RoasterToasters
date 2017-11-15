@@ -1,5 +1,5 @@
 # from classRoom import TODO
-from classCourse import courseReader
+from reader import csvCourse
 # from classStudent import TODO
 # from courseCounter import TODO
 import scheduleRange
