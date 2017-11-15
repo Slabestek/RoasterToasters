@@ -13,11 +13,6 @@ class Room:
 #voor elke student een object maken
 	#waarden van elke student toevoegen aan object
 
-myList = []
-	
-with open('rooms.csv', 'r') as f:
-	reader = csv.reader(f)
-	for row in reader:
-		myList.append(row) 
+
 
 

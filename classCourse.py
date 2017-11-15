@@ -36,12 +36,7 @@ def courseReader(file):
 
 	csvRows = []
 
-	# read in csv of courses
-	with open(file, 'r') as f:
-		next(f)
-		reader = csv.reader(f)
-		for row in reader:
-			csvRows.append(row)
+
 
 	# make a dictionary with a key-value pair for each course
 	courses = {row[0]: Course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 

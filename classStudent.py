@@ -16,12 +16,7 @@ def studentReader(file):
 	#csv inlezen in python
 	csvRows = []
 
-	# read in csv of courses
-	with open(file, 'r') as f:
-		next(f)
-		reader = csv.reader(f)
-		for row in reader:
-			csvRows.append(row)
+
 
 	#voor elke student een object maken
 		#waarden van elke student toevoegen aan object
