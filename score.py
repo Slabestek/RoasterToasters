@@ -1,8 +1,4 @@
-#from ? import ?
-
-days = range(5)
-timeslots = range(4)
-classrooms = range(7)
+import scheduleRange
 
 def doubleStudent(scheduleList):
 	for day in days:
@@ -11,12 +7,9 @@ def doubleStudent(scheduleList):
 				for student in scheduleList[day][timeslot][classroom].studentNumbers:			
 					for classroom in classrooms:
 						for students in scheduleList[day][timeslot][classroom].studentNumbers:
-							if student1 == students :
+							if student == students :
 								score -= 1
-
 	return score
-
-
 
 
 

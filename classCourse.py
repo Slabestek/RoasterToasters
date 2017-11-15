@@ -1,8 +1,9 @@
 import csv
 
 class Course:
-	def __init__(self, name, lecture = 0, seminar = 0, seminarCap = None, practical = 0, 
-				practicalCap = None, studentNumbers = {}, activities = [], students = 0):
+	def __init__(self, name, lecture = 0, seminar = 0, seminarCap = 0, practical = 0, 
+				practicalCap = 0, studentNumbers = {}, activities = [],  seminars = 0, 
+				practicals = 0, students = 0):
 		self.name = name
 		self.lecture = lecture
 		self.seminar = seminar
@@ -10,26 +11,32 @@ class Course:
 		self.practical = practical
 		self.practicalCap = practicalCap
 		self.studentNumbers = studentNumbers
-		self.students = len(studentNumbers)
-		if students > seminarCap and seminar > 0:
-			remainder = students % seminarCap
-			if remainder == 0:
-				self.seminars = (students / seminarCap) * seminar
-			else:
-				self.seminars = (((students - remainder) / seminarCap) + 1) * seminar
-		if students > practicalCap and practical > 0:
-			remainder = students % practicalCap
-			if remainder == 0:
-				self.practicals = (students / practicalCap) * practical
-			else:
-				self.practicals = (((students - remainder) / practicalCap) + 1) * practical
+		self.students = students
+		# werkt nog niet goed, bij 1 practitcal zijn er 0 practicals
+		if int(seminar) > 0:
+			if students > int(seminarCap):
+				remainder = students % seminarCap
+				if remainder == 0:
+					seminars = (students / seminarCap) * seminar
+				else:
+					seminars = (((students - remainder) / seminarCap) + 1) * seminar
+		if int(practical) > 0:			
+			if students > int(practicalCap):
+				remainder = students % practicalCap
+				if remainder == 0:
+					practicals = (students / practicalCap) * practical
+				else:
+					practicals = (((students - remainder) / practicalCap) + 1) * practical
+		self.seminars = seminars
+		self.practicals = practicals
+					
 			
 
 	def __repr__(self):
 		return self.name
 
-	def enroll(self, studentNumber):
-		self.studentNumbers['studentNumber'] = 
+	#def enroll(self, studentNumber):
+	#	self.studentNumbers['studentNumber'] = ""
 
 
 def courseReader(file):
@@ -38,7 +45,3 @@ def courseReader(file):
 
 
 
-	# make a dictionary with a key-value pair for each course
-	courses = {row[0]: Course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 
-		for row in csvRows}
-	return courses
