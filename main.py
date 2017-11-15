@@ -1,5 +1,5 @@
 # from classRoom import TODO
-from reader import csvCourse
+from reader import courses, students, rooms
 # from classStudent import TODO
 # from courseCounter import TODO
 import scheduleRange
@@ -7,18 +7,16 @@ import scheduleRange
 # make empty list 
 scheduleList = []
 
-course = courseReader("courses.csv")
 courseCounter = 0
 
 # for item in course:
 # 	seminar = course[item].practical
 # print seminar
 
-courseItems = course.items()
+courseItems = courses.items()
 # print courseItems
 
 # for key, value in itertools.
-print course['Heuristieken 1'].lecture
 
 
 for day in days:
@@ -36,7 +34,5 @@ for day in days:
 				scheduleList[day][timeslot].append(courseItems[courseCounter][1])
 			courseCounter += 1
 			# print courseCounter
-
-
 
 print scheduleList
