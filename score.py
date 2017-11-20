@@ -1,9 +1,24 @@
 import scheduleRange
 
+score = 0
+
+def ValidSchedule(scheduleList):
+
+	# for activity in activities:
+	# 	if activity:
+	# 		score += 1000
+
+
+	# for day in days:
+	# 	for timeslot in timeslots:
+	# 		for classroom in classrooms:
+
+
+
 def doubleStudent(scheduleList):
-	for day in days:
-		for timeslot in timeslots:
-			for classroom in classrooms:
+	#for day in days:
+		#for timeslot in timeslots:
+			#for classroom in classrooms:
 				for student in scheduleList[day][timeslot][classroom].studentNumbers:			
 					for classroom in classrooms:
 						for students in scheduleList[day][timeslot][classroom].studentNumbers:
@@ -11,33 +26,28 @@ def doubleStudent(scheduleList):
 								score -= 1
 	return score
 
+def ExtraStudent(scheduleList):
+
+	for student in scheduleList [day][timeslot][classroom].studentNumbers:
+		for classroom in classrooms:
+			if student > seminarCap or student > practicalCap:
+				score -= 1
+	return score		
+
+def ScheduleSpread1(scheduleList):
+
+		score -= 10
+	return score
+
+def ScheduleSpread2(scheduleList):
+
+		score -= 20
+	return score	
+
+def ScheduleSpread3(scheduleList):
+
+		score -= 30
+	return score	
 
 
-# score = 0
-
-# if rooster = 128
-# 	score = 1000
-# 	for (elke activiteit (i in range 128?)):
-
-# 		if student dubbel
-# 			score -1
-
-# 		if student te veel
-# 			score -1
-
-# 	elke activiteit vergelijken op verdeling week
-
-# 		if verdeeld
-# 			score + 20
-
-# 		if x - 1 
-# 			score - 10
-
-# 		if x - 2
-# 			score - 20
-
-# 		if x - 3
-# 			score - 30		
-
-# return score
 
