@@ -18,7 +18,7 @@ courseItems = courses.items()
 
 # for key, value in itertools.
 
-
+# edit loop zodat 1 de liststructuur bouwt en een andere loop die list vult
 for day in days:
 # 	# print "dit is day {}".format(day)
 	scheduleList.append([])
