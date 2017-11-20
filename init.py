@@ -2,13 +2,14 @@ import csv
 from classCourse import Course
 from classStudent import Student
 from classRoom import Room
+from classActivity import Activity
 
 
 csvCourse = []
-courses = {}
 csvStudents = []
-students = {}
 csvRooms = []
+
+
  
 coursesFile = 'courses.csv' 
 studentsFile = 'studentenenvakken.csv' 
@@ -20,10 +21,13 @@ def main():
 	studentReader()
 	roomReader()
 
+	courses = {}
 	for course in csvCourse:
 		courses[course[0]] = Course(course[0], course[1], course[2], course[3], 
 			course[4], course[5], course[6])
 
+
+	students = {}
 	for student in csvStudents:
 		courseList = []
 		for j in range(5):
@@ -32,23 +36,28 @@ def main():
 		students[student[2]] = Student(student[0], student[1], student[2], 
 			courseList)
 
-	roomList = []
+	rooms = []
 	for room in csvRooms:
 		room[0] = Room(room[0], room[1])
-		roomList.append(room[0])
+		rooms.append(room[0])
 
 
+	activities = {}
+	for course in courses:
+		l = int(courses[course].lecture)
+		s = int(courses[course].seminars)
+		p = int(courses[course].practicals)
+		if l > 0:
+			activities[course + ' (lecture)'] = Activity(course, 'lecture', l)
+		if s > 0:
+			activities[course + ' (seminar)'] = Activity(course, 'seminar', s)
+		if p > 0:
+			activities[course + ' (practical)'] = Activity(course, 
+				'practical', p)
 
+	objectList = [courses, students, rooms, activities]
+	return objectList
 
-	# print(students['21311067'].course)	
-
-	
-	# print([Advanced Heuristics])
-	# make a first course object
-	# Course1 = Course(csvCourse[0][0], csvCourse[0][1], csvCourse[0][2], csvCourse[0][3], 
-	# csvCourse[0][4], csvCourse[0][5], csvCourse[0][6])
-	# print(Course1.practicals)
-	# print(Course1.students)
 
 	# make a dictionary with a key-value pair for each course
 	#courses = {row[0]: Course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 
@@ -88,7 +97,8 @@ def roomReader():
 	print (len(csvRooms))	
 
 if __name__ == "__main__":
-	main()	
+	main()
+	
 
 
 
