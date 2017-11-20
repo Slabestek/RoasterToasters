@@ -29,19 +29,12 @@ class Course:
 					practicals = (((students - remainder) / practicalCap) + 1) * practical
 		self.seminars = seminars
 		self.practicals = practicals
-					
-			
 
 	def __repr__(self):
 		return self.name
 
-	#def enroll(self, studentNumber):
-	#	self.studentNumbers['studentNumber'] = ""
-
-
-def courseReader(file):
-
-	csvRows = []
+	def enrollCourse(classObject):
+		self.studentNumbers[classObject.studentNumber] = classObject
 
 
 

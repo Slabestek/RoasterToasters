@@ -6,5 +6,5 @@ class Activity:
 	def __repr__(self):
 		return self.course + self.category
 
-	def enroll:
-		self.studentNumbers['studentNumber'] = 
+	def enrollActivity(classObject):
+		self.studentNumbers[classObject.studentNumber] = classObject
