@@ -2,7 +2,7 @@ class Activity:
 	def __init__(self, course, category, amount, studentNumbers = {}):
 		self.category = category
 		self.course = course
-		self.amount = amount
+		self.amount = int(amount)
 
 	def __repr__(self):
 		return self.course + ' (' + self.category + ')'

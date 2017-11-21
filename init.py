@@ -42,18 +42,17 @@ def main():
 		rooms.append(room[0])
 
 
-	activities = {}
+	activities = []
 	for course in courses:
 		l = int(courses[course].lecture)
 		s = int(courses[course].seminars)
 		p = int(courses[course].practicals)
 		if l > 0:
-			activities[course + ' (lecture)'] = Activity(course, 'lecture', l)
+			activities.append(Activity(course, 'lecture', l))
 		if s > 0:
-			activities[course + ' (seminar)'] = Activity(course, 'seminar', s)
+			activities.append(Activity(course, 'seminar', s))
 		if p > 0:
-			activities[course + ' (practical)'] = Activity(course, 
-				'practical', p)
+			activities.append(Activity(course, 'practical', p))
 
 	objectList = [courses, students, rooms, activities]
 	return objectList

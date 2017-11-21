@@ -18,7 +18,7 @@ class Course:
 			pass	
 		self.studentNumbers = studentNumbers
 		self.students = int(students)
-		# werkt nog niet goed, bij 1 practitcal zijn er 0 practicals
+		
 		if self.seminar > 0:
 			if self.students > self.seminarCap:
 				remainder = self.students % self.seminarCap
