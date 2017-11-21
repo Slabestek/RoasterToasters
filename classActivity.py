@@ -7,5 +7,8 @@ class Activity:
 	def __repr__(self):
 		return self.course + ' (' + self.category + ')'
 
-	def enrollActivity(classObject):
+	def enrollActivity(studentObject):
 		self.studentNumbers[classObject.studentNumber] = classObject
+
+	def roomChange(roomObject):
+		self.room = roomObject

@@ -7,12 +7,3 @@ class Room:
 
 	def __repr__(self):
 		return self.name
-
-#csv inlezen in python
-
-#voor elke student een object maken
-	#waarden van elke student toevoegen aan object
-
-
-
-

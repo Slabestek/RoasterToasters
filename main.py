@@ -1,18 +1,10 @@
-# from classRoom import TODO
 import init
-# from classStudent import TODO
-# from courseCounter import TODO
+from tabulate import tabulate
+from terminaltables import AsciiTable
 from scheduleRange import days, timeslots, classrooms, dayStrings
 
-# make empty list 
-scheduleList = []
-
-# edit loop zodat 1 de liststructuur bouwt en een andere loop die list vult
-for day in days:
-	# scheduleList.append(dayStrings[day])
-	scheduleList.append([])
-	for timeslot in timeslots:
-		scheduleList[day].append([])
+# make empty matrix 
+scheduleList = [[[None] * classrooms for i in range(timeslots)] for j in range(days)]
 
 activities = init.main()[3]
 
@@ -22,16 +14,16 @@ for activity in activities:
 
 activityAmount = len(activityList)
 
-for day in days:
-	for timeslot in timeslots:
-		for classroom in classrooms:
+for day in range(days):
+	for timeslot in range(timeslots):
+		for classroom in range(classrooms):
 			# for amount in range(activityAmount):
 			if not activityList:
 				break
 			else:
-				scheduleList[day][timeslot].append(activityList.pop())
+				scheduleList[day][timeslot][classroom] = activityList.pop()
 
+table = AsciiTable(scheduleList)
+print(table.table)
+# print(tabulate(scheduleList))
 
-print (scheduleList)
-# vul scheduleList met activities
-# print(init.main()[3])
