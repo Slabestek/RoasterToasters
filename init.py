@@ -62,10 +62,15 @@ def enrollStudent(students):
 
 	for student in students:
 		courseList = students[student].course
+		print(courseList)
 		for course in courseList:
+			course.enrollCourse(students[student])
+		print(len(course.studentNumbers))
 
-			# course.enrollCourse(students[student])
-			print(students[student])
+	
+	# print(course.studentAmount)
+	# print(students[student])
+	# print(len(course.studentNumbers))
 		
 
 

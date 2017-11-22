@@ -24,13 +24,12 @@ for day in range(days):
 
 table = AsciiTable(scheduleList)
 # print(table.table)
-# print(tabulate(scheduleList))
 # print(scheduleList)
 
 students = init.main()[1]
-# courses = init.main()[0]
+courses = init.main()[0]
 # init.enrollStudents()
 
 init.enrollStudent(students)
-# print(students)
+print(len(courses['Kansrekenen 2'].studentNumbers))
 

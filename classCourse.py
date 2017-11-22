@@ -2,8 +2,7 @@ import csv
 
 class Course:
 	def __init__(self, name, lecture = 0, seminar = 0, seminarCap = 0, practical = 0, 
-				practicalCap = 0, studentAmount = 0, studentNumbers = {}, activities = [],  seminars = 0, 
-				practicals = 0):
+				practicalCap = 0, studentAmount = 0, seminars = 0, practicals = 0):
 		self.name = name
 		self.lecture = lecture
 		self.seminar = int(seminar)
@@ -16,8 +15,10 @@ class Course:
 			self.practicalCap = int(practicalCap)
 		except:
 			pass	
-		self.studentNumbers = studentNumbers
+		self.studentNumbers = {}
+		self.activities = []
 		self.studentAmount = int(studentAmount)
+
 		
 		if self.seminar > 0:
 			if self.studentAmount > self.seminarCap:
