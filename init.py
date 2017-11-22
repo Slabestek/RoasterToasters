@@ -32,7 +32,7 @@ def main():
 		courseList = []
 		for j in range(5):
 			if not student[j + 3] == '':
-				courseList.append(student[j + 3])
+				courseList.append(courses[student[j + 3]])
 		students[student[2]] = Student(student[0], student[1], student[2], 
 			courseList)
 
@@ -58,6 +58,17 @@ def main():
 	return objectList
 
 
+def enrollStudent(students):
+
+	for student in students:
+		courseList = students[student].course
+		for course in courseList:
+
+			# course.enrollCourse(students[student])
+			print(students[student])
+		
+
+
 	# make a dictionary with a key-value pair for each course
 	#courses = {row[0]: Course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 
 	#	for row in csvCourse}
@@ -77,11 +88,15 @@ def courseReader():
 
 def studentReader():
 	# read in csv of students
+
 	with open(studentsFile, 'r', encoding = 'ISO-8859-1') as f:
 		next(f)
 		reader = csv.reader(f)
 		for row in reader:
 			csvStudents.append(row)
+
+			# ISO-8859-1   <- OLD ENCODING
+			# cp1252    <- NEW ENCODING
 
 	# print (csvStudents)
 

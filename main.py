@@ -1,5 +1,4 @@
 import init
-from tabulate import tabulate
 from terminaltables import AsciiTable
 from scheduleRange import days, timeslots, classrooms, dayStrings
 
@@ -24,6 +23,14 @@ for day in range(days):
 				scheduleList[day][timeslot][classroom] = activityList.pop()
 
 table = AsciiTable(scheduleList)
-print(table.table)
+# print(table.table)
 # print(tabulate(scheduleList))
+# print(scheduleList)
+
+students = init.main()[1]
+# courses = init.main()[0]
+# init.enrollStudents()
+
+init.enrollStudent(students)
+# print(students)
 
