@@ -51,9 +51,12 @@ def createClasses():
 		if l > 0:
 			activities.append(Activity(course, 'lecture', l))
 		if s > 0:
-			activities.append(Activity(course, 'seminar', s))
+			for i in range(s):
+				activities.append(Activity(course, 'seminar', s, i + 1))
 		if p > 0:
-			activities.append(Activity(course, 'practical', p))
+			for i in range(p):
+				activities.append(Activity(course, 'practical', p, i + 1))
+
 
 	objectList = [courses, students, rooms, activities]
 	return objectList
@@ -68,19 +71,11 @@ def enrollStudent(students):
 			course.enrollCourse(students[student])
 		print(len(course.studentNumbers))
 
+
+# def fillActivities(students)
 	
-	# print(course.studentAmount)
-	# print(students[student])
-	# print(len(course.studentNumbers))
-		
+	
 
-
-	# make a dictionary with a key-value pair for each course
-	#courses = {row[0]: Course(row[0], row[1], row[2], row[3], row[4], row[5], row[6]) 
-	#	for row in csvCourse}
-	#return courses
-
-def fillActivities
 
 def courseReader():
 	# read in csv of courses
@@ -96,14 +91,11 @@ def courseReader():
 def studentReader():
 	# read in csv of students
 
-	with open(studentsFile, 'r', encoding = 'ISO-8859-1') as f:
+	with open(studentsFile, 'r') as f:
 		next(f)
 		reader = csv.reader(f)
 		for row in reader:
 			csvStudents.append(row)
-
-			# ISO-8859-1   <- OLD ENCODING
-			# cp1252    <- NEW ENCODING
 
 	# print (csvStudents)
 
