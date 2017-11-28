@@ -1,11 +1,16 @@
-import init
+
+from modules.init import createClasses as createClasses
+from modules.init import enrollStudent as enrollStudent
 from terminaltables import AsciiTable
-from scheduleRange import days, timeslots, classrooms, dayStrings
+from modules.scheduleRange import days, timeslots, classrooms, dayStrings
+
+# create the classes and put the returned object in a variable
+objectList = createClasses()
 
 # make empty matrix 
 scheduleList = [[[None] * classrooms for i in range(timeslots)] for j in range(days)]
 
-activities = init.main()[3]
+activities = objectList[3]
 
 activityList = []
 for activity in activities:
@@ -26,10 +31,9 @@ table = AsciiTable(scheduleList)
 # print(table.table)
 # print(scheduleList)
 
-students = init.main()[1]
-courses = init.main()[0]
-# init.enrollStudents()
+students = objectList[1]
+courses = objectList[0]
 
-init.enrollStudent(students)
+enrollStudent(students)
 print(len(courses['Kansrekenen 2'].studentNumbers))
 

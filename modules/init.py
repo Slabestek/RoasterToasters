@@ -1,9 +1,9 @@
-import csv
-from classCourse import Course
-from classStudent import Student
-from classRoom import Room
-from classActivity import Activity
 
+import csv
+from classes.classCourse import Course
+from classes.classStudent import Student
+from classes.classRoom import Room
+from classes.classActivity import Activity
 
 csvCourse = []
 csvStudents = []
@@ -11,11 +11,11 @@ csvRooms = []
 
 
  
-coursesFile = 'courses.csv' 
-studentsFile = 'studentenenvakken.csv' 
-roomsFile = 'rooms.csv' 
+coursesFile = './data/courses.csv' 
+studentsFile = './data/studentenenvakken.csv' 
+roomsFile = './data/rooms.csv' 
 
-def main():
+def createClasses():
 
 	courseReader()
 	studentReader()
@@ -115,8 +115,9 @@ def roomReader():
 
 	print (len(csvRooms))	
 
-if __name__ == "__main__":
-	main()
+
+# if __name__ == "__main__":
+# 	main()
 	
 
 
