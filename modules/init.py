@@ -15,6 +15,7 @@ coursesFile = './data/courses.csv'
 studentsFile = './data/studentenenvakken.csv' 
 roomsFile = './data/rooms.csv' 
 
+# moet eigenlijk createObjects heten
 def createClasses():
 
 	courseReader()
@@ -79,6 +80,7 @@ def enrollStudent(students):
 	#	for row in csvCourse}
 	#return courses
 
+def fillActivities
 
 def courseReader():
 	# read in csv of courses
