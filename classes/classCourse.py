@@ -19,7 +19,6 @@ class Course:
 		self.activities = []
 		self.studentAmount = int(studentAmount)
 
-		
 		if self.seminar > 0:
 			if self.studentAmount > self.seminarCap:
 				remainder = self.studentAmount % self.seminarCap
@@ -43,5 +42,5 @@ class Course:
 	def enrollCourse(self, classObject):
 		self.studentNumbers[classObject.studentNumber] = classObject
 
-
+	# def addActivities
 
