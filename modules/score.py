@@ -1,5 +1,5 @@
 # import scheduleRange
-
+from classes.classRoom import Room
 
 # score = 0
 
@@ -25,7 +25,8 @@ def doubleStudent(scheduleList):
 				if scheduleList[day][timeslot][classroom] is None:
 					pass
 				else:
-					for student in scheduleList[day][timeslot][classroom].studentNumbers:		
+					for student in scheduleList[day][timeslot][classroom].studentNumbers:
+						score += 1		
 						for classroom in range(7):
 							if scheduleList[day][timeslot][classroom] is None:
 								pass
@@ -38,15 +39,30 @@ def doubleStudent(scheduleList):
 											
 										
 
-# def ExtraStudent(scheduleList):
+def extraStudent(scheduleList):
+	score = 0
+	for day in range (5):
+		for timeslot in range (4):
+			for classroom in range (7):
+				if scheduleList[day][timeslot][classroom] is None:
+					pass
+				else:	
+					if len(scheduleList[day][timeslot][classroom].studentNumbers) > int(scheduleList[0][0][0].room.cap):
+						score -= 1
+	print(score)		
 
-	# for student in scheduleList [day][timeslot][classroom].studentNumbers:
-	# 	for classroom in classrooms:
-	# 		if student > seminarCap or student > practicalCap:
-	# 			score -= 1
-	# print(score)		
+# # def ScheduleSpread1(scheduleList):
 
-# def ScheduleSpread1(scheduleList):
+# 	score = 0
+# 	countCourse = 0
+# 	countAct = 0
+
+# 	for day in range (5):
+# 		for course in courses:
+# 			for activities in activity:
+
+
+
 
 # 		score -= 10
 # 	return score

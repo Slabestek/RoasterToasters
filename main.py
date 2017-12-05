@@ -24,6 +24,7 @@ for day in range(days):
 				break
 			else:
 				scheduleList[day][timeslot][classroom] = activities.pop()
+				scheduleList[day][timeslot][classroom].roomChange(rooms[classroom])
 
 table = AsciiTable(scheduleList)
 # print(table.table)
