@@ -15,5 +15,7 @@ class Activity:
 	def enrollActivity(self, studentObject):
 		self.studentNumbers[studentObject.studentNumber] = studentObject
 
-	def roomChange(self, roomObject):
+	def roomChange(self, roomObject, dayIndex, timeslot):
 		self.room = roomObject
+		self.day = dayIndex
+		self.timeslot = timeslot
