@@ -6,7 +6,7 @@ from modules.init import fillActivities as fillActivities
 from terminaltables import AsciiTable
 from modules.scheduleRange import days, timeslots, dayStrings
 from modules.scheduleRange import rooms as numRooms
-from algorithms.hillclimber import climbHill as climbHill
+from algorithms.hillClimber import climbHill as climbHill
 
 # create the classes and put the returned object in a variable
 courses, students, rooms, activities = createObjects()
@@ -24,13 +24,6 @@ climbHill(scheduleList, activities, 10)
 
 table = AsciiTable(scheduleList)
 # print(table.table)
-# print(scheduleList)
-
-# students = objectList[1]
-# courses = objectList[0]
 
 enrollStudent(students)
 fillActivities(courses)
-# print(students.items()[1])
-# for k, v in students.items():
-# 	print(k, v)

@@ -15,16 +15,23 @@ def swapRoomSlot(activity1, activity2, scheduleList):
     scheduleList[day2][timeslot2][room2] = scheduleList[day1][timeslot1][room1]
     scheduleList[day1][timeslot1][room1] = temp
 
-def randomSchedule(scheduleList, days, timeslots, rooms, activities):
+def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
     counter = 0
+    l = len(activities)
+    print(l)
     shuffle(activities)
     for day in range(days):
-    	for timeslot in range(timeslots):
-    		for room in range(rooms):
-    			scheduleList[day][timeslot][room] = activities[counter]
-    			counter += 1
-    			if scheduleList[day][timeslot][room] == None:
-    				break
-    			else:
-    				scheduleList[day][timeslot][room].roomChange(
-    					rooms[room], room, day, timeslot)
+        print('day:',day)
+        for timeslot in range(timeslots):
+            print('t:',timeslot)
+            for room in range(rooms):
+                print('r:', room)
+                scheduleList[day][timeslot][room] = activities[counter]
+                counter += 1
+                if counter >= l:
+                    break
+                if scheduleList[day][timeslot][room] == None:
+                    break
+                else:
+                    scheduleList[day][timeslot][room].roomChange(
+                        roomObj[room].name, room, day, timeslot)
