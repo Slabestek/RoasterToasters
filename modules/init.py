@@ -95,10 +95,10 @@ def fillActivities(courses):
 		students = []
 		for k, v in courses[course].studentNumbers.items():
 			students.append(v)
-		print(students)
+		# print(students)
 		activities = courses[course].activities
 		for activity in activities:
-			print(seminarCount, practicalCount)
+			# print(seminarCount, practicalCount)
 			if activity.category == 'lecture':
 				for student in students:
 					activity.enrollActivity(student)
@@ -116,8 +116,8 @@ def fillActivities(courses):
 					else:
 						break
 				practicalCount += i + 1
-			print(activity)
-			print(activity.studentNumbers)
+			# print(activity)
+			# print(activity.studentNumbers)
 
 
 
