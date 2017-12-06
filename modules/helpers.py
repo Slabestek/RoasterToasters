@@ -21,11 +21,8 @@ def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
     print(l)
     shuffle(activities)
     for day in range(days):
-        print('day:',day)
         for timeslot in range(timeslots):
-            print('t:',timeslot)
             for room in range(rooms):
-                print('r:', room)
                 scheduleList[day][timeslot][room] = activities[counter]
                 counter += 1
                 if counter >= l:
