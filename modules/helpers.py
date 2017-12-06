@@ -34,4 +34,4 @@ def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
                     break
                 else:
                     scheduleList[day][timeslot][room].roomChange(
-                        roomObj[room].name, room, day, timeslot)
+                        roomObj[room], room, day, timeslot)
