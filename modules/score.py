@@ -1,5 +1,6 @@
 # import scheduleRange
-from classes.classRoom import Room
+# from classes.classRoom import Room
+# from modules.init import createObjects
 
 # score = 0
 
@@ -19,47 +20,67 @@ from classes.classRoom import Room
 def doubleStudent(scheduleList):
 
 	score = 0
-	for day in range (5):
-		for timeslot in range (4):
-			for classroom in range (7):
-				if scheduleList[day][timeslot][classroom] is None:
-					pass
-				else:
+	for day in range(5):
+		for timeslot in range(4):
+			for classroom in range(7):
+				if scheduleList[day][timeslot][classroom]:
 					for student in scheduleList[day][timeslot][classroom].studentNumbers:
-						score += 1		
+						score += 1				
 						for classroom in range(7):
-							if scheduleList[day][timeslot][classroom] is None:
-								pass
-							else:
+							if scheduleList[day][timeslot][classroom]:
 								for students in scheduleList[day][timeslot][classroom].studentNumbers:
 									if student == students:
-										score -= 1	
-	print(score)				
-											# return score	
-											
+										score -= 1
+							else:
+								pass		
+				else:
+					pass					
 										
+	print(score)				
+								
 
 def extraStudent(scheduleList):
 	score = 0
-	for day in range (5):
-		for timeslot in range (4):
-			for classroom in range (7):
-				if scheduleList[day][timeslot][classroom] is None:
-					pass
-				else:	
-					if len(scheduleList[day][timeslot][classroom].studentNumbers) > int(scheduleList[0][0][0].room.cap):
-						score -= 1
+	array = []
+	for day in range(5):
+		for timeslot in range(4):
+			for classroom in range(7):
+				if scheduleList[day][timeslot][classroom]:	
+					studentLength = len(scheduleList[day][timeslot][classroom].studentNumbers)
+					array.append(scheduleList[day][timeslot][classroom].room)
+					print(len(array))
+					roomCap = int(scheduleList[day][timeslot][classroom].room.cap)	
+					if studentLength > roomCap:
+						score -= studentLength - roomCap
+				else:
+					pass		
+
 	print(score)		
 
-# # def ScheduleSpread1(scheduleList):
 
-# 	score = 0
-# 	countCourse = 0
-# 	countAct = 0
+def scheduleSpread1(scheduleList):
 
-# 	for day in range (5):
-# 		for course in courses:
-# 			for activities in activity:
+	score = 0
+	for day in range(5):
+		for timeslot in range(4):
+			for classroom in range(7):
+				for activity in activities:
+					score -= 10
+			
+
+
+
+
+# for i in courses:
+# 	counter =+ 1
+# 	for j in counter[i]:
+
+	# score = 0
+	# countCourse = 0
+	# countAct = 0
+
+	# for day in range (5):
+		
 
 
 

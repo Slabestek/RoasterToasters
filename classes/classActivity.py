@@ -20,3 +20,4 @@ class Activity:
 		self.roomIndex = roomIndex
 		self.day = day
 		self.timeslot = timeslot
+
