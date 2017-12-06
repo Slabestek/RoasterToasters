@@ -20,10 +20,11 @@ activities.extend(noneList)
 # 	print(activity)
 
 # print(len(activities))
-climbHill(scheduleList, activities, 10)
 
-table = AsciiTable(scheduleList)
+# table = AsciiTable(scheduleList)
 # print(table.table)
 
 enrollStudent(students)
 fillActivities(courses)
+
+climbHill(scheduleList, activities, 10)

@@ -14,19 +14,23 @@ def climbHill(scheduleList, activities, iterations):
 
     # generate a random schedule
     randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj)
-    object1 = None
-    object2 = None
+
+
     for i in range(iterations):
+        object1 = None
         while object1 == None:
-            rDay = randint(0, days - 1)
-            rTime = randint(0, timeslots - 1)
-            rRoom = randint(0, rooms - 1)
+            rDay = randint(0, (days - 1))
+            rTime = randint(0, (timeslots - 1))
+            rRoom = randint(0, (rooms - 1))
+            print(rDay, rTime, rRoom)
             object1 = scheduleList[rDay][rTime][rRoom]
         print(object1)
+        object2 = None
         while object2 == None:
-            rDay1 = randint(0, days - 1)
-            rTime1 = randint(0, timeslots - 1)
-            rRoom1 = randint(0, rooms - 1)
+            rDay1 = randint(0, (days - 1))
+            rTime1 = randint(0, (timeslots - 1))
+            rRoom1 = randint(0, (rooms - 1))
+            print(rDay1, rTime1, rRoom1)
             object2 = scheduleList[rDay1][rTime1][rRoom1]
         print(object2)
         print(scheduleList[object1.day][object1.timeslot])
