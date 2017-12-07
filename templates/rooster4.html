@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+
+		<link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
+
+		<title>
+			RoasterToasters!
+		</title>
+
+	</head>
+
+	<body>
+
+		{% block content %}
+
+		<div id="bigTitle">
+			<p>
+				ROASTERTOASTERS
+			</p>
+		</div>	
+
+		<div id="roosterTable">
+			<table>
+				<tr>
+					<th></th>
+					<th>Monday</th>
+					<th>Tuesday</th>
+					<th>Wednesday</th>
+					<th>Thursday</th>
+					<th>Friday</th>
+				</tr>
+
+				{% for timeslot in range(timeslots) %}
+				<tr>
+					<td>{{ 7 + (loop.index * 2) }}:00 - {{ 9 + (loop.index * 2)}}:00</td>
+					
+					{% for day in range(days) %}
+					<td>
+						<div class = "tableInside">
+							<table>				
+
+								{% for room in range(numRooms) %}
+								<tr>
+									<td id = "roomTableSlot">	
+										{{ coursePrint[day][timeslot][room].room.name if coursePrint[day][timeslot][room].room }}
+									</td>
+									<td>
+										{{ coursePrint[day][timeslot][room] if coursePrint[day][timeslot][room] }}
+									</td>
+								</tr>
+								{% endfor %}
+
+							</table>							
+						</div>						
+					</td>
+					{% endfor %}
+
+				</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+
+		{% endblock %}
+
+	</body>
+</html>
