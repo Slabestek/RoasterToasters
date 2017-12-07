@@ -35,9 +35,9 @@ climbHill(scheduleList, activities, 10)
 randomSchedule(scheduleList, days, timeslots, numRooms, activities, rooms)
 
 
-# Run Flask in terminal:
-# FLASK_APP=main.py flask run
-# http://127.0.0.1:5000/
+## 	 Run Flask in terminal:		 ##
+## 	 FLASK_APP=main.py flask run ##
+## 	 http://127.0.0.1:5000/		 ##
 
 app = Flask(__name__)
 
