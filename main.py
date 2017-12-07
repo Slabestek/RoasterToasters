@@ -9,6 +9,7 @@ from terminaltables import AsciiTable
 from modules.scheduleRange import days, timeslots, dayStrings
 from modules.scheduleRange import rooms as numRooms
 from algorithms.hillClimber import climbHill as climbHill
+from modules.helpers import randomSchedule
 
 # create the classes and put the returned object in a variable
 courses, students, rooms, activities = createObjects()
@@ -30,6 +31,8 @@ enrollStudent(students)
 fillActivities(courses)
 
 climbHill(scheduleList, activities, 10)
+
+randomSchedule(scheduleList, days, timeslots, numRooms, activities, rooms)
 
 
 # Run Flask in terminal:
