@@ -1,0 +1,62 @@
+/* Stylesheet - styles.css */
+
+#bigTitle {
+	text-align: center;
+	border: 1px solid black;
+}
+
+/*#roosterTable {
+	border: 1px solid black;
+	position: relative;
+	top: 50px;
+}*/
+
+#roosterTable {
+	position: relative;
+	top: 50px;
+	border: 1px solid black;
+	/*border-radius: 20px;*/
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	/*border: 1px solid black;*/
+	height: 100%;
+}
+
+td, th {
+	padding: 10px;
+	border: 1px solid black;
+}
+
+td, tr {
+	border-right: 2px solid black;
+}
+
+table tr, td, th {
+	/*width: 18%*/
+	/*vertical-align: center;*/
+}
+
+.tableInside {
+	margin: -11px;
+	border-collapse: collapse;
+	border: -1px;
+	height: 550px;
+	/*border: 5px solid red;*/
+}
+
+#roomTableSlot {
+	width: 30%;
+}
+
+.tableInside tr, td {
+	/*border-bottom: 1px solid black*/
+	border: 1px solid black;
+}
+
+.tableInside td {
+	/*height: 14.2857142857143%;*/
+}
+
