@@ -23,9 +23,6 @@ from modules.score import (
 # create the classes and put the returned object in a variable
 courses, students, rooms, activities = createObjects()
 
-lengthActivities = len(activities)
-# for i in range((days*timeslots*numRooms) - lengthActivities
-
 
 # make empty schedule
 scheduleList = emptySchedule(days, timeslots, numRooms)

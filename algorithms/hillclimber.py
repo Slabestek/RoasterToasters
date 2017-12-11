@@ -17,16 +17,24 @@ def climbHill(rngSchedule, activities, iterations):
         rRoom = randint(0, (rooms - 1))
         object1 = rngSchedule[rDay][rTime][rRoom]
 
-        # print(object1)
-
         rDay1 = randint(0, (days - 1))
         rTime1 = randint(0, (timeslots - 1))
         rRoom1 = randint(0, (rooms - 1))
         object2 = rngSchedule[rDay1][rTime1][rRoom1]
 
+        v, e, d, s = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule)
+        score1 = v + e + d + s
+
+
         swapRoomSlot(object1, object2, rngSchedule)
 
-        e, d, s = extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule)
-        print(e, d, s)
+        v2, e2, d2, s2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule)
+        score2 = v2 + e2 + d2 + s2
+
+        if score2 > score1:
+            print('score:', score2, i)
+        else:
+            swapRoomSlot(object1, object2, rngSchedule)
+            i -= 1
 
     return rngSchedule

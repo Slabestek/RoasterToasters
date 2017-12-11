@@ -22,7 +22,6 @@ def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
     lengthActivities = len(activities)
     rngSchedule = deepcopy(scheduleList)
 
-
     counter = 0
     acounter = 0
     for day in range(days):
