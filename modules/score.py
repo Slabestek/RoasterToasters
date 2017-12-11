@@ -1,5 +1,5 @@
 def validSchedule(scheduleList):
-	score = 0
+	score1 = 0
 	count = 0
 	for day in range(5):
 		for timeslot in range(4):
@@ -7,84 +7,84 @@ def validSchedule(scheduleList):
 				if scheduleList[day][timeslot][classroom]:
 					count += 1
 					if count == 129:
-						score += 1000
-	print(score)	
+						score1 += 1000
+	return score1
 
 
 	# 			array.append(activity)
 	# 			if len(array) == 128:
-	# 				score = 1000	
+	# 				score = 1000
 	# 				print(len(array))
-	# print(score)				
+	# print(score)
 
 
 def doubleStudent(scheduleList):
-
-	score = 0
+	score2 = 0
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
 				if scheduleList[day][timeslot][classroom]:
 					for student in scheduleList[day][timeslot][classroom].studentNumbers:
-						score += 1				
+						# print(student)
+						score2 += 1
 						for classroom1 in range(7):
 							if scheduleList[day][timeslot][classroom1]:
 								for students in scheduleList[day][timeslot][classroom1].studentNumbers:
 									if student == students:
-										score -= 1																			
-	print(score)				
-								
+										score2 -= 1
+	return score2
+
 
 def extraStudent(scheduleList):
-	score = 0
+	score3 = 0
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
-				if scheduleList[day][timeslot][classroom]:	
+				if scheduleList[day][timeslot][classroom].label:
 					studentLength = len(scheduleList[day][timeslot][classroom].studentNumbers)
-					roomCap = int(scheduleList[day][timeslot][classroom].room.cap)	
+					roomCap = int(scheduleList[day][timeslot][classroom].room.cap)
 					if studentLength > roomCap:
-						score -= studentLength - roomCap	
-	print(score)		
+						score3 -= studentLength - roomCap
+	return score3
 
 
 def scheduleSpread(scheduleList):
 
-	score = 0
+	score4 = 0
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
 				if scheduleList[day][timeslot][classroom]:
 					category1 = scheduleList[day][timeslot][classroom].category
-					score += 10				
+					score4 += 10
 					for timeslot1 in range(4):
 						for classroom1 in range(7):
 							if scheduleList[day][timeslot1][classroom1]:
 								category2 = scheduleList[day][timeslot1][classroom1].category
 								if scheduleList[day][timeslot][classroom].course == scheduleList[day][timeslot1][classroom1].course:
 									if category1 == 'lecture' and category2 == 'lecture':
-										score -= 10
+										score4 -= 10
 									if category1 == 'lecture' and category2 == 'seminar':
-										score -= 10
+										score4 -= 10
 									if category1 == 'lecture' and category2 == 'practical':
-										score -= 10
-									if category1 == 'seminar' and category2 == 'practical':	
-										score -= 10
-	print(score)									
+										score4 -= 10
+									if category1 == 'seminar' and category2 == 'practical':
+										score4 -= 10
+	return score4
 
 # def bonusPoints
 
 
 	# score = 0
-	# countAct = 0	
+	# countAct = 0
 	# for day in range(5):
 	# 	for timeslot in range(4):
 	# 		for classroom in range(7):
-	# 			if scheduleList[day][timeslot][classroom]:	
+	# 			if scheduleList[day][timeslot][classroom]:
 
-	# 				countAct = 0	
+	# 				countAct = 0
 	# 				print(scheduleList[day][timeslot][classroom])
-	# 				print(scheduleList[day][timeslot][classroom].amount)				
+	# 				print(scheduleList[day][timeslot][classroom].amount)
 					# for courses in scheduleList[day][timeslot][classroom].course:
 					# 	category = scheduleList[day][timeslot][classroom].category
 					# 	if category == 'lecture':
@@ -92,7 +92,7 @@ def scheduleSpread(scheduleList):
 					# 	if category == 'seminar':
 					# 		countAct += 1
 					# 	if category == 'practical':
-					# 		countAct += 1		
+					# 		countAct += 1
 					# 	print(scheduleList[day][timeslot][classroom].course)
 					# 	print(countAct)
 
@@ -103,14 +103,8 @@ def scheduleSpread(scheduleList):
 					# 	if activityCheck:
 					# 		if activity == activityCheck:
 								# countAct += 1
-							# if countAct 
+							# if countAct
 
 
 
 					# score -= 10
-					
-		
-
-
-
-

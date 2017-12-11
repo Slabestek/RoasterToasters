@@ -15,7 +15,13 @@ coursesFile = './data/courses.csv'
 studentsFile = './data/studentenenvakken.csv'
 roomsFile = './data/rooms.csv'
 
-# moet eigenlijk createObjects heten
+def emptySchedule(days, timeslots, numRooms):
+
+	scheduleList = [[[None] * numRooms for i in range(timeslots)] for j in range(days)]
+
+	return scheduleList
+
+
 def createObjects():
 
 	courseReader()

@@ -1,4 +1,5 @@
 import random
+from copy import deepcopy as deepcopy
 
 def swapRoomSlot(activity1, activity2, scheduleList):
 
@@ -19,25 +20,25 @@ def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
     counter = 0
 
     # random.shuffle(activities)
-    l = len(activities)
-    length = 0
-    nonecount=0
+    lengthActivities = len(activities)
+    rngSchedule = deepcopy(scheduleList)
+    # print(rngSchedule)
+    # length = 0
+    # nonecount=0
+
     for day in range(days):
         for timeslot in range(timeslots):
             for room in range(rooms):
-                scheduleList[day][timeslot][room] = activities[counter]
+                # print(day, timeslot, room)
+                rngSchedule[day][timeslot][room] = activities[counter]
                 counter += 1
-                if counter >= l:
-                    break
-                if scheduleList[day][timeslot][room] == None:
-                    # print(scheduleList[day][timeslot][room])
-                    nonecount+=1
-                    # break
+                if counter >= lengthActivities:
+                    return rngSchedule
                 else:
-                    # print(scheduleList[day][timeslot][room])
-                    scheduleList[day][timeslot][room].roomChange(
+                    rngSchedule[day][timeslot][room].roomChange(
                         roomObj[room], room, day, timeslot)
-            length += len(scheduleList[day][timeslot])
-
+                        # print(scheduleList[day][timeslot][room])
+            # length += len(scheduleList[day][timeslot])
+    return rngSchedule
     # print(nonecount, counter)
     # print(l, length)
