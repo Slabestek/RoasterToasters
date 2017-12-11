@@ -17,24 +17,24 @@ def swapRoomSlot(activity1, activity2, scheduleList):
     scheduleList[day1][timeslot1][room1] = temp
 
 def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
-    counter = 0
 
-    # random.shuffle(activities)
+    random.shuffle(activities)
     lengthActivities = len(activities)
     rngSchedule = deepcopy(scheduleList)
-    # print(rngSchedule)
-    # length = 0
-    # nonecount=0
 
+
+    counter = 0
+    acounter = 0
     for day in range(days):
         for timeslot in range(timeslots):
             for room in range(rooms):
                 # print(day, timeslot, room)
                 rngSchedule[day][timeslot][room] = activities[counter]
                 counter += 1
-                if counter >= lengthActivities:
+                if counter > lengthActivities:
                     return rngSchedule
                 else:
+                    acounter += 1
                     rngSchedule[day][timeslot][room].roomChange(
                         roomObj[room], room, day, timeslot)
                         # print(scheduleList[day][timeslot][room])

@@ -40,11 +40,10 @@ def extraStudent(scheduleList):
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
-				if scheduleList[day][timeslot][classroom].label:
-					studentLength = len(scheduleList[day][timeslot][classroom].studentNumbers)
-					roomCap = int(scheduleList[day][timeslot][classroom].room.cap)
-					if studentLength > roomCap:
-						score3 -= studentLength - roomCap
+				studentLength = len(scheduleList[day][timeslot][classroom].studentNumbers)
+				roomCap = int(scheduleList[day][timeslot][classroom].room.cap)
+				if studentLength > roomCap:
+					score3 -= studentLength - roomCap
 	return score3
 
 

@@ -65,6 +65,12 @@ def createObjects():
 		if p > 0:
 			for i in range(p):
 				activities.append(Activity(course, 'practical', p, i + 1))
+
+	# print(len(activities))
+	emptyActiv = [Activity()] * 11
+	activities.extend(emptyActiv)
+	# print(activities)
+
 	actCount = 0
 	count = 0
 	for course in courses:
