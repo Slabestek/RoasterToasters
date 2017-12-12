@@ -11,13 +11,6 @@ def validSchedule(scheduleList):
 	return score1
 
 
-	# 			array.append(activity)
-	# 			if len(array) == 128:
-	# 				score = 1000
-	# 				print(len(array))
-	# print(score)
-
-
 def doubleStudent(scheduleList):
 	score2 = 0
 	for day in range(5):
@@ -25,7 +18,6 @@ def doubleStudent(scheduleList):
 			for classroom in range(7):
 				if scheduleList[day][timeslot][classroom]:
 					for student in scheduleList[day][timeslot][classroom].studentNumbers:
-						# print(student)
 						score2 += 1
 						for classroom1 in range(7):
 							if scheduleList[day][timeslot][classroom1]:
@@ -48,27 +40,26 @@ def extraStudent(scheduleList):
 
 
 def scheduleSpread(scheduleList):
-
 	score4 = 0
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
 				if scheduleList[day][timeslot][classroom]:
 					category1 = scheduleList[day][timeslot][classroom].category
-					score4 += 10
 					for timeslot1 in range(4):
 						for classroom1 in range(7):
 							if scheduleList[day][timeslot1][classroom1]:
 								category2 = scheduleList[day][timeslot1][classroom1].category
 								if scheduleList[day][timeslot][classroom].course == scheduleList[day][timeslot1][classroom1].course:
-									if category1 == 'lecture' and category2 == 'lecture':
-										score4 -= 10
-									if category1 == 'lecture' and category2 == 'seminar':
-										score4 -= 10
-									if category1 == 'lecture' and category2 == 'practical':
-										score4 -= 10
-									if category1 == 'seminar' and category2 == 'practical':
-										score4 -= 10
+									if scheduleList[day][timeslot][classroom] != scheduleList[day][timeslot1][classroom1]:
+										if category1 == 'lecture' and category2 == 'lecture':
+											score4 -= 10
+										if category1 == 'lecture' and category2 == 'seminar':
+											score4 -= 10
+										if category1 == 'lecture' and category2 == 'practical':
+											score4 -= 10
+										if category1 == 'seminar' and category2 == 'practical':
+											score4 -= 10
 	return score4
 
 # def bonusPoints
