@@ -52,10 +52,10 @@ def createObjects():
 
 	# make activity objects
 	activities = []
-	for course in courses:
-		l = int(courses[course].lecture)
-		s = int(courses[course].seminars)
-		p = int(courses[course].practicals)
+	for key, course in courses.items():
+		l = int(courses[key].lecture)
+		s = int(courses[key].seminars)
+		p = int(courses[key].practicals)
 		if l > 0:
 			for i in range(l):
 				activities.append(Activity(course, 'lecture', l, i + 1))
@@ -67,8 +67,11 @@ def createObjects():
 				activities.append(Activity(course, 'practical', p, i + 1))
 
 	# print(len(activities))
-	emptyActiv = [Activity()] * 11
-	activities.extend(emptyActiv)
+	for _ in range(11):
+		act = Activity()
+		activities.append(act)
+	# emptyActiv = [Activity() for _ in range(11)]
+	# activities.extend(emptyActiv)
 	# print(activities)
 
 	actCount = 0

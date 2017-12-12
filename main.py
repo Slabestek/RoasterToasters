@@ -43,3 +43,5 @@ def roosterPrint():
 
 	return render_template("rooster4.html", coursePrint = coursePrint, numRooms = numRooms,
 		days = days, timeslots = timeslots)
+
+# FLASK_APP=test.py flask run

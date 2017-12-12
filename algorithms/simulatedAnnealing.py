@@ -8,8 +8,7 @@ from modules.score import (
 )
 
 
-def climbHill(rngSchedule, activities, iterations):
-
+def annealedSim(rngSchedule, activities, iterations):
 
     for i in range(iterations):
         rDay = randint(0, (days - 1))
