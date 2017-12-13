@@ -39,19 +39,20 @@ def extraStudent(scheduleList):
 	return score3
 
 
-def scheduleSpread(scheduleList):
+def scheduleSpread(rngSchedule):
 	score4 = 0
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
-				if scheduleList[day][timeslot][classroom]:
-					category1 = scheduleList[day][timeslot][classroom].category
+				print(rngSchedule[day][timeslot][classroom])
+				if rngSchedule[day][timeslot][classroom]:
+					category1 = rngSchedule[day][timeslot][classroom].category
 					for timeslot1 in range(4):
 						for classroom1 in range(7):
-							if scheduleList[day][timeslot1][classroom1]:
-								category2 = scheduleList[day][timeslot1][classroom1].category
-								if scheduleList[day][timeslot][classroom].course == scheduleList[day][timeslot1][classroom1].course:
-									if scheduleList[day][timeslot][classroom] != scheduleList[day][timeslot1][classroom1]:
+							if rngSchedule[day][timeslot1][classroom1]:
+								category2 = rngSchedule[day][timeslot1][classroom1].category
+								if rngSchedule[day][timeslot][classroom].course == rngSchedule[day][timeslot1][classroom1].course:
+									if rngSchedule[day][timeslot][classroom] != rngSchedule[day][timeslot1][classroom1]:
 										if category1 == 'lecture' and category2 == 'lecture':
 											score4 -= 10
 										if category1 == 'lecture' and category2 == 'seminar':
@@ -60,17 +61,115 @@ def scheduleSpread(scheduleList):
 											score4 -= 10
 										if category1 == 'seminar' and category2 == 'practical':
 											score4 -= 10
-	return score4
+	print(score4)
 
-# def bonusPoints
-
-
-	# score = 0
-	# countAct = 0
+def bonusPoints(courses, activities):
+	score = 0
+	mon = 0
+	tue = 1
+	wed = 2
+	thu = 3
+	fri = 4
 	# for day in range(5):
 	# 	for timeslot in range(4):
 	# 		for classroom in range(7):
-	# 			if scheduleList[day][timeslot][classroom]:
+	# 			activity = rngSchedule[day][timeslot][classroom]
+	# 			if rngSchedule[day][timeslot][classroom].amount != 0:
+	# 				if activity.numActivity == 2:
+	count = 0
+	for key, course in courses.items():
+		# print(course)
+		if course.numActivity == 2:
+			for activity in course.activities:
+				if activity.day == 0 or activity.day == 3:
+					score += 20
+				if activity.day == 1 or activity.day == 4:
+					score += 20
+		if course.numActivity == 3:
+			for activity in course.activities:
+				if activity.day == 0 or activity.day == 2 or activity.day == 4:
+					score += 20
+		if course.numActivity == 4:
+			for activity in course.activities:
+				if activity.day == 0 or activity.day == 1 or activity.day == 3 or activity.day == 4:
+					score += 20					
+		
+
+
+	print(score)				
+
+
+		# 	count += 1
+		# 	# print(count)
+		# print(activity)	
+		# print(count)
+	# print(count)
+
+	# 		print(activity)
+	# 		print(activity.day)
+	# 		if activity.day == 1:
+	# 			score +=1
+	# print(score)			
+
+
+
+			# print(activities.day) 
+
+
+			# if course.activities != 'No Class':
+			# 	print(course.activities.day)
+				
+
+
+
+	# 		score += 1
+
+	# print(score)
+
+
+
+			# for day in range(5):
+			# 	for timeslot in range(4):
+			# 		for classroom in range(7):
+			# 			if rngSchedule[0][timeslot][classroom] and rngSchedule[3][timeslot][classroom]:
+			# 				score += 20
+			# 			elif rngSchedule[1][timeslot][classroom] and rngSchedule[4][timeslot][classroom]:	
+			# 				score +=20
+		
+
+
+
+
+
+
+
+
+	# 					if rngSchedule[mon][timeslot][classroom]:
+	# 						print(rngSchedule[mon][timeslot][classroom])
+	# 						print(rngSchedule[mon][timeslot][classroom].numActivity)
+
+	# print(score)		
+
+
+						
+
+						# if rngSchedule[mon][timeslot][classroom] and rngSchedule[thu][timeslot][classroom]:
+							# score += 1
+					
+
+
+					# if rngSchedule[day][timeslot][classroom].numActivity == 3:
+
+					# if rngSchedule[day][timeslot][classroom].numActivity == 4:	
+
+
+					
+	# print(score)						
+
+
+
+
+
 
 	# 				countAct = 0
 	# 				print(scheduleList[day][timeslot][classroom])

@@ -4,8 +4,10 @@ class Course:
 	def __init__(self, name, lecture = 0, seminar = 0, seminarCap = 0, practical = 0, 
 				practicalCap = 0, studentAmount = 0, seminars = 0, practicals = 0):
 		self.name = name
-		self.lecture = lecture
+		self.lecture = int(lecture)
 		self.seminar = int(seminar)
+		self.practical = int(practical)
+		self.numActivity = self.lecture + self.seminar + self.practical
 		try:
 			self.seminarCap	= int(seminarCap)
 		except:
