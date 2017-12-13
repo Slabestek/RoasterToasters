@@ -31,7 +31,7 @@ enrollStudent(students)
 fillActivities(courses)
 rngSchedule = randomSchedule(scheduleList, days, timeslots, numRooms, activities, rooms)
 
-climbHill(rngSchedule, activities, 2)
+# climbHill(rngSchedule, activities, 2)
 
 
 app = Flask(__name__)

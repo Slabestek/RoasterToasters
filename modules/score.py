@@ -18,9 +18,9 @@ def doubleStudent(rngSchedule):
 	# 		print(course1)
 	# 		# if student.course.numActivity > 1:
 	# 		score += 1
-	# 	print(score)	
+	# 	print(score)
 	# 	# print(student.course)
-	# print(score)	
+	# print(score)
 
 	score = 0
 	for day in range(5):
@@ -85,10 +85,10 @@ def bonusPoints(courses, activities):
 			for activity in course.activities:
 				for activity2 in course.activities:
 					# if activity.category != activity2.category:
-					if activity.day == mon and activity2.day == thu or activity2.day == mon and activity.day == thu:	
+					if activity.day == mon and activity2.day == thu or activity2.day == mon and activity.day == thu:
 						score += 20
-					if activity.day == tue and activity2.day == fri or activity2.day == tue and activity.day == fri:	
-						score += 20	
+					if activity.day == tue and activity2.day == fri or activity2.day == tue and activity.day == fri:
+						score += 20
 		if course.numActivity == 3:
 			for activity in course.activities:
 				for activity2 in course.activities:
@@ -97,19 +97,18 @@ def bonusPoints(courses, activities):
 						if activity.day == mon and activity2.day == wed and activity3 == fri:
 							score += 20
 		if course.numActivity == 4:
-			print(course)
 			for activity in course.activities:
 				for activity2 in course.activities:
 					for activity3 in course.activities:
 						for activity4 in course.activities:
 							if activity.day == mon and activity2.day == tue and activity3 == thu and activity4 == fri:
-								score += 20			
-	print(score/ 2)				
+								score += 20
+	return score		
 
 
 		# 	count += 1
 		# 	# print(count)
-		# print(activity)	
+		# print(activity)
 		# print(count)
 	# print(count)
 
@@ -117,10 +116,8 @@ def bonusPoints(courses, activities):
 	# 		print(activity.day)
 	# 		if activity.day == 1:
 	# 			score +=1
-	# print(score)			
+	# print(score)
 
 
 
 			# print(activities.day)
-			
-

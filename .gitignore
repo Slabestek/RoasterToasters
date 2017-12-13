@@ -3,3 +3,6 @@ __pycache__
 test.py
 *.xlsx
 profilerOut
+profOut
+.DS_Store
+algorithmOutput

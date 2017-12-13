@@ -1,40 +1,69 @@
-from random import randint as randint
+from random import randint, random
 from modules.helpers import swapRoomSlot as swapRoomSlot
 from modules.helpers import randomSchedule as randomSchedule
 from modules.scheduleRange import days, timeslots, rooms
 from modules.score import (
     extraStudent, validSchedule,
-    doubleStudent, scheduleSpread
+    doubleStudent, scheduleSpread, bonusPoints
 )
+from math import exp
+import csv
 
 
-def annealedSim(rngSchedule, activities, iterations):
+def annealedSim(rngSchedule, activities, courses):
 
-    for i in range(iterations):
-        rDay = randint(0, (days - 1))
-        rTime = randint(0, (timeslots - 1))
-        rRoom = randint(0, (rooms - 1))
-        object1 = rngSchedule[rDay][rTime][rRoom]
+    with open('simAnnealing.csv', 'w', newline = '') as csvfile:
+        scoreWriter = csv.writer(csvfile)
 
-        rDay1 = randint(0, (days - 1))
-        rTime1 = randint(0, (timeslots - 1))
-        rRoom1 = randint(0, (rooms - 1))
-        object2 = rngSchedule[rDay1][rTime1][rRoom1]
+        temp = 10000
+        coolingRate = 0.003
+        randObj = 2
+        n = 1
 
-        v, e, d, s = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule)
-        score1 = v + e + d + s
+        # calc score1
+        itercount = 0
+        while itercount < 10399:
 
-        swapRoomSlot(object1, object2, rngSchedule)
+            randList = []
+            for i in range(randObj):
+                rDay = randint(0, (days - 1))
+                rTime = randint(0, (timeslots - 1))
+                rRoom = randint(0, (rooms - 1))
+                randList.append(rngSchedule[rDay][rTime][rRoom])
 
-        v2, e2, d2, s2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule)
-        score2 = v2 + e2 + d2 + s2
+            # rDay1 = randint(0, (days - 1))
+            # rTime1 = randint(0, (timeslots - 1))
+            # rRoom1 = randint(0, (rooms - 1))
+            # object2 = rngSchedule[rDay1][rTime1][rRoom1]
 
-        if score2 > score1:
-            print('score:', score2, i)
-        else:
-            swapRoomSlot(object1, object2, rngSchedule)
-            # print('swapback', object1.room, object2.room)
-            # print(object1.room, object2.room)
-            # print(i)
+            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            score1 = v + e + d + s + b
+
+            swapRoomSlot(randList[0], randList[1], rngSchedule)
+
+            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            score2 = v2 + e2 + d2 + s2 + b2
+            probability = acceptProbability(score1, score2, temp)
+            if probability < random():
+                swapRoomSlot(randList[0], randList[1], rngSchedule)
+                scoreWriter.writerow(['oldScore', score1, temp, probability])
+            else:
+                scoreWriter.writerow(['newScore', score2, temp, probability])
+
+            temp *= 1-coolingRate
+            itercount += 1
+
+            if itercount == 1300 * n:
+                temp = 10000
+                n += 1
+
 
     return rngSchedule
+
+
+def acceptProbability(oldScore, newScore, temp):
+
+    if newScore > oldScore:
+        return 1.0
+    else:
+        return (exp((oldScore - newScore) / temp)) - 1

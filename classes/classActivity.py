@@ -7,7 +7,7 @@ class Activity:
 		self.studentNumbers = {}
 		self.label = label
 		# if self.course != 'No Class':
-		# 	self.numActivity = self.course.lecture + self.course.seminar + self.course.practical 
+		# 	self.numActivity = self.course.lecture + self.course.seminar + self.course.practical
 
 	def __repr__(self):
 		if self.course == 'No Class':
@@ -25,3 +25,4 @@ class Activity:
 		self.roomIndex = roomIndex
 		self.day = day
 		self.timeslot = timeslot
+		roomObject.full[str(day) + str(timeslot)] = True
