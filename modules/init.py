@@ -110,6 +110,7 @@ def fillActivities(courses):
 		students = []
 		for k, v in courses[course].studentNumbers.items():
 			students.append(v)
+			# print(students)
 		# print(students)
 		activities = courses[course].activities
 		for activity in activities:
@@ -117,10 +118,14 @@ def fillActivities(courses):
 			if activity.category == 'lecture':
 				for student in students:
 					activity.enrollActivity(student)
+					# print('1', student)
+					# student.assignActivity(activity, course)
 			if activity.category == 'seminar':
 				for i in range(courses[course].seminarCap):
 					if i + seminarCount < len(students):
 						activity.enrollActivity(students[i + seminarCount])
+						# students[i + seminarCount].assignActivity(activity, course)
+						# print('2', students[i + seminarCount])
 					else:
 						break
 				seminarCount += i + 1
@@ -128,6 +133,8 @@ def fillActivities(courses):
 				for i in range(courses[course].practicalCap):
 					if i + practicalCount < len(students):
 						activity.enrollActivity(students[i + practicalCount])
+						# students[i + practicalCount].assignActivity(activity, course)
+						# print('3', students[i + practicalCount])
 					else:
 						break
 				practicalCount += i + 1

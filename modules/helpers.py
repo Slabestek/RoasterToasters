@@ -9,9 +9,11 @@ def swapRoomSlot(activity1, activity2, scheduleList):
     timeslot2 = activity2.timeslot
     room1 = activity1.roomIndex
     room2 = activity2.roomIndex
+    roomObj1 = activity1.room
+    roomObj2 = activity2.room
 
-    activity1.roomChange(activity2.room, room2, day2, timeslot2)
-    activity2.roomChange(activity1.room, room1, day1, timeslot1)
+    activity1.roomChange(roomObj2, room2, day2, timeslot2)
+    activity2.roomChange(roomObj1, room1, day1, timeslot1)
     temp = scheduleList[day2][timeslot2][room2]
     scheduleList[day2][timeslot2][room2] = scheduleList[day1][timeslot1][room1]
     scheduleList[day1][timeslot1][room1] = temp

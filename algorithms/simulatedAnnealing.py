@@ -10,7 +10,7 @@ from math import exp
 import csv
 
 
-def annealedSim(rngSchedule, activities, courses):
+def annealedSim(rngSchedule, activities, courses, iters):
 
     with open('simAnnealing.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
@@ -22,7 +22,7 @@ def annealedSim(rngSchedule, activities, courses):
 
         # calc score1
         itercount = 0
-        while itercount < 10399:
+        while itercount < iters:
 
             randList = []
             for i in range(randObj):
@@ -46,14 +46,14 @@ def annealedSim(rngSchedule, activities, courses):
             probability = acceptProbability(score1, score2, temp)
             if probability < random():
                 swapRoomSlot(randList[0], randList[1], rngSchedule)
-                scoreWriter.writerow(['oldScore', score1, temp, probability])
+                scoreWriter.writerow(['oldScore', score1, score2, temp])
             else:
-                scoreWriter.writerow(['newScore', score2, temp, probability])
+                scoreWriter.writerow(['newScore', score1, score2, temp])
 
             temp *= 1-coolingRate
             itercount += 1
 
-            if itercount == 1300 * n:
+            if itercount == 2000 * n:
                 temp = 10000
                 n += 1
 

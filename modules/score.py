@@ -11,7 +11,7 @@ def validSchedule(rngSchedule):
 	return score
 
 
-def doubleStudent(rngSchedule):
+def doubleStudent(rngSchedule, students):
 	# score = 0
 	# for key, student in students.items():
 	# 	for key, course1 in student.courses.items():
@@ -103,7 +103,7 @@ def bonusPoints(courses, activities):
 						for activity4 in course.activities:
 							if activity.day == mon and activity2.day == tue and activity3 == thu and activity4 == fri:
 								score += 20
-	return score		
+	return score
 
 
 		# 	count += 1
