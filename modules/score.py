@@ -84,26 +84,36 @@ def bonusPoints(courses, activities):
 		if course.numActivity == 2:
 			for activity in course.activities:
 				for activity2 in course.activities:
-					# if activity.category != activity2.category:
-					if activity.day == mon and activity2.day == thu or activity2.day == mon and activity.day == thu:
-						score += 20
-					if activity.day == tue and activity2.day == fri or activity2.day == tue and activity.day == fri:
-						score += 20
+					if activity.category != activity2.category:
+						if activity != activity2:
+							if activity.day == mon and activity2.day == thu:
+								score += 20
+							elif activity2.day == mon and activity.day == thu:
+								score += 20
+							if activity.day == tue and activity2.day == fri:
+								score += 20
+							elif activity2.day == tue and activity.day == fri:
+								score += 20
 		if course.numActivity == 3:
 			for activity in course.activities:
 				for activity2 in course.activities:
 					for activity3 in course.activities:
-						# if activity.category != activity2.category and activity2.category != activity3.category and activity.category != activity3.category:
-						if activity.day == mon and activity2.day == wed and activity3 == fri:
-							score += 20
+						if activity.category != activity2.category and activity2.category != activity3.category and activity.category != activity3.category:
+							if activity != activity2 and activity2 != activity3 and activity != activity3:
+								if activity.day == mon and activity2.day == wed and activity3 == fri:
+									score += 20
 		if course.numActivity == 4:
 			for activity in course.activities:
 				for activity2 in course.activities:
 					for activity3 in course.activities:
 						for activity4 in course.activities:
-							if activity.day == mon and activity2.day == tue and activity3 == thu and activity4 == fri:
-								score += 20
-	return score
+							if activity.category != activity2.category and activity2.category != activity3.category and activity.category != activity3.category:
+								if activity.category != activity.category and activity2.category != activity4.category and activity3.category != activity4.category:
+									if activity != activity2 and activity2 != activity3 and activity != activity3:
+										if activity != activity and activity2 != activity4 and activity3 != activity4:							
+											if activity.day == mon and activity2.day == tue and activity3 == thu and activity4 == fri:
+												score += 20
+	return score / 2		
 
 
 		# 	count += 1
