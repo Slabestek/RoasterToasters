@@ -9,7 +9,7 @@ from modules.score import (
 import csv
 
 
-def climbHill(rngSchedule, activities, i, courses):
+def climbHill(rngSchedule, activities, i, courses, students):
 
     with open('hillClimb' + str(i) + 'iter.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
@@ -35,14 +35,14 @@ def climbHill(rngSchedule, activities, i, courses):
             # rRoom1 = randint(0, (rooms - 1))
             # object2 = rngSchedule[rDay1][rTime1][rRoom1]
 
-            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
             score1 = v + e + d + s + b
-            scoreWriter.writerow([randList[0].room, randList[1].room])
+            # scoreWriter.writerow([randList[0].room, randList[1].room])
             swapRoomSlot(randList[0], randList[1], rngSchedule)
-            scoreWriter.writerow([randList[0].room, randList[0].timeslot,
-                randList[1].room, randList[1].timeslot])
+            # scoreWriter.writerow([randList[0].room, randList[0].timeslot,
+            #     randList[1].room, randList[1].timeslot])
 
-            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
             score2 = v2 + e2 + d2 + s2 + b2
 
             if score2 > score1:
@@ -51,10 +51,10 @@ def climbHill(rngSchedule, activities, i, courses):
             else:
                 scoreWriter.writerow([score1])
                 swapRoomSlot(randList[0], randList[1], rngSchedule)
-                scoreWriter.writerow([randList[0].room, randList[1].room])
+                # scoreWriter.writerow([randList[0].room, randList[1].room])
                 # print(score1, _)
                 # print('swapback', object1.room, object2.room)
                 # print(object1.room, object2.room)
                 # print(i)
-
+        scoreWriter.writerow([rngSchedule])
     return rngSchedule

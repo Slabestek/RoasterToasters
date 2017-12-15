@@ -10,7 +10,7 @@ from math import exp
 import csv
 
 
-def annealedSim(rngSchedule, activities, courses, iters):
+def annealedSim(rngSchedule, activities, courses, iters, students):
 
     with open('simAnnealing.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
@@ -18,7 +18,7 @@ def annealedSim(rngSchedule, activities, courses, iters):
         temp = 10000
         coolingRate = 0.003
         randObj = 2
-        n = 1
+        tempJumps = 1
 
         # calc score1
         itercount = 0
@@ -36,26 +36,26 @@ def annealedSim(rngSchedule, activities, courses, iters):
             # rRoom1 = randint(0, (rooms - 1))
             # object2 = rngSchedule[rDay1][rTime1][rRoom1]
 
-            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
             score1 = v + e + d + s + b
 
             swapRoomSlot(randList[0], randList[1], rngSchedule)
 
-            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
             score2 = v2 + e2 + d2 + s2 + b2
             probability = acceptProbability(score1, score2, temp)
             if probability < random():
                 swapRoomSlot(randList[0], randList[1], rngSchedule)
-                scoreWriter.writerow(['oldScore', score1, score2, temp])
+                scoreWriter.writerow(['oldScore', score1, temp])
             else:
-                scoreWriter.writerow(['newScore', score1, score2, temp])
+                scoreWriter.writerow(['newScore', score2, temp])
 
             temp *= 1-coolingRate
             itercount += 1
 
-            if itercount == 2000 * n:
+            if itercount == 1000 * tempJumps:
                 temp = 10000
-                n += 1
+                tempJumps += 1
 
 
     return rngSchedule
