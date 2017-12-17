@@ -1,24 +1,23 @@
 import csv
 
 class Student:
-	def __init__(self, lastName, firstName, studentNumber, course = [],
-				activities = {}):
+	def __init__(self, lastName, firstName, studentNumber, course = []):
 		self.lastName = lastName
 		self.firstName = firstName
 		self.studentNumber = studentNumber
 		self.course = course
-		self. activities = activities
+		self.activities = []
 
 	def __repr__(self):
 		name = self.firstName + ' ' + self.lastName
 		return name
 
-	def assignActivity(self, activity, course):
-		if not course in self.activities:
-			self.activities[course] = []
-			self.activities[course].append(activity)
-		else:
-			self.activities[course].append(activity)
+	# def assignActivity(self, activity, course):
+	# 	if not course in self.activities:
+	# 		self.activities[course] = []
+	# 		self.activities[course].append(activity)
+	# 	else:
+	# 		self.activities[course].append(activity)
 
 
 '''

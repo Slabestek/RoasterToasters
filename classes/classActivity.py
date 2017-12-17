@@ -1,13 +1,12 @@
 class Activity:
     def __init__(self, course = 'No Class', category = '',
-                amount = 0, label = None, numActivity = 0):
+                amount = 0, label = None):
         self.category = category
         self.course = course
         self.amount = int(amount)
         self.studentNumbers = {}
         self.label = label
-        # if self.course != 'No Class':
-    # 	self.numActivity = self.course.lecture + self.course.seminar + self.course.practical
+
 
     def __repr__(self):
         if self.course == 'No Class':
@@ -19,11 +18,12 @@ class Activity:
 
     def enrollActivity(self, studentObject):
         self.studentNumbers[studentObject.studentNumber] = studentObject
-        if not self.course in studentObject.activities:
-            studentObject.activities[self.course] = []
-            studentObject.activities[self.course].append(self)
-        else:
-            studentObject.activities[self.course].append(self)
+        studentObject.activities.append(self)
+        # if not self.course in studentObject.activities:
+        #     studentObject.activities[self.course] = []
+        #     studentObject.activities[self.course].append(self)
+        # else:
+        #     studentObject.activities[self.course].append(self)
 
 
     def roomChange(self, roomObject, roomIndex, day, timeslot):

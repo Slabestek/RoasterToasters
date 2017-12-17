@@ -1,3 +1,5 @@
+import collections
+
 def validSchedule(rngSchedule):
 	score = 0
 	count = 0
@@ -11,26 +13,41 @@ def validSchedule(rngSchedule):
 	return score
 
 
-def doubleStudent(rngSchedule, students):
-	# score = 0
-	# for key, student in students.items():
-	# 	for key, course1 in student.courses.items():
-	# 		print(course1)
-	# 		# if student.course.numActivity > 1:
-	# 		score += 1
-	# 	print(score)
-	# 	# print(student.course)
-	# print(score)
+def doubleStudent(students):
+	score = 0
+	# collisions = 0
+	for key, student in students.items():
+		activities = student.activities
+		dayTime = []
+		for activity in activities:
+		# 	print(student, activity)
+			numActivity = len(activities)
+			if numActivity > 1:
+				dayTime.append(str(activity.day) + str(activity.timeslot))
+		counter = collections.Counter(dayTime)
+		for count in counter.values():
+			if count > 1:
+				# print(count)
+				score -= count
+
+
+
+		# print(student.course)
+	# print('coll', collisions)
+	return score
+
+def doubleStudent2(rngSchedule):
 
 	score = 0
 	for day in range(5):
 		for timeslot in range(4):
 			for classroom in range(7):
-				if rngSchedule[day][timeslot][classroom]:
+				if rngSchedule[day][timeslot][classroom].label:
 					for student in rngSchedule[day][timeslot][classroom].studentNumbers:
-						score += 1
 						for classroom1 in range(7):
-							if rngSchedule[day][timeslot][classroom1]:
+							if classroom == classroom1:
+								continue
+							if rngSchedule[day][timeslot][classroom1].label:
 								for students in rngSchedule[day][timeslot][classroom1].studentNumbers:
 									if student == students:
 										score -= 1
@@ -110,10 +127,10 @@ def bonusPoints(courses, activities):
 							if activity.category != activity2.category and activity2.category != activity3.category and activity.category != activity3.category:
 								if activity.category != activity.category and activity2.category != activity4.category and activity3.category != activity4.category:
 									if activity != activity2 and activity2 != activity3 and activity != activity3:
-										if activity != activity and activity2 != activity4 and activity3 != activity4:							
+										if activity != activity and activity2 != activity4 and activity3 != activity4:
 											if activity.day == mon and activity2.day == tue and activity3 == thu and activity4 == fri:
 												score += 20
-	return score / 2		
+	return score / 2
 
 
 		# 	count += 1

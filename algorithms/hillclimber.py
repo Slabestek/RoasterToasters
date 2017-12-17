@@ -4,7 +4,7 @@ from modules.helpers import randomSchedule as randomSchedule
 from modules.scheduleRange import days, timeslots, rooms
 from modules.score import (
     extraStudent, validSchedule,
-    doubleStudent, scheduleSpread, bonusPoints
+    doubleStudent2, scheduleSpread, bonusPoints
 )
 import csv
 
@@ -35,14 +35,14 @@ def climbHill(rngSchedule, activities, i, courses, students):
             # rRoom1 = randint(0, (rooms - 1))
             # object2 = rngSchedule[rDay1][rTime1][rRoom1]
 
-            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent2(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
             score1 = v + e + d + s + b
             # scoreWriter.writerow([randList[0].room, randList[1].room])
             swapRoomSlot(randList[0], randList[1], rngSchedule)
             # scoreWriter.writerow([randList[0].room, randList[0].timeslot,
             #     randList[1].room, randList[1].timeslot])
 
-            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
+            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent2(rngSchedule), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
             score2 = v2 + e2 + d2 + s2 + b2
 
             if score2 > score1:
