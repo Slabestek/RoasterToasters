@@ -12,7 +12,6 @@ If a swap results in a higher score, the swap stays and it continues to the next
 results in a lower score it 'discards' the swap and continues to the next swap. This way, the
 schedule will become better and better eventually.
 '''
-
 def climbHill(rngSchedule, activities, i, courses, students):
 
     with open('hillClimb' + str(i) + 'iter.csv', 'w', newline = '') as csvfile:
