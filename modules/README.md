@@ -1,4 +1,4 @@
 # Modules
 
-In de modules folder bevinden zich files die gebruikt worden bij het inladen van de data, het maken 
-en beoordelen van een rooster.
+The modules folder contains all the files that are being used to load in the data and to create 
+and score a schedule.
