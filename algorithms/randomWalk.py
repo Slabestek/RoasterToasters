@@ -29,5 +29,4 @@ def randomWalk(rngSchedule, activities, i, courses, students):
             swapRoomSlot(randList[0], randList[1], rngSchedule)
             scoreWriter.writerow([Score])
             
-    # scoreWriter.writerow([rngSchedule])
     return rngSchedule
