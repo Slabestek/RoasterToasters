@@ -1,9 +1,8 @@
 # Algoritmes
 
-Er kunnen verschillende algoritmes gebruikt worden om een rooster te creëren. Dit zijn:  
+Different algorithms can be used to create a schedule. The algorithms in this folder: 
 
 -Hillclimber
 -Simulated annealing
 
-Deze algoritmes worden aangeroepen in main.py 
-
+These algorithms are called in main.py

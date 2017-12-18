@@ -1,9 +1,9 @@
 # Data
 
-Er wordt gebruik gemaakt van csv bestanden om de data in te laden. Deze data wordt later 
-gebruikt bij het maken van een rooster. Er zijn drie csv bestanden waar informatie vandaan
-wordt gehaald:
+The data we use is stored in CSV files. This data is retrieved from the files and used to make
+a schedule. There are three CSV files that holds information:
 
--courses.csv: Van alle vakken het aantal gegeven lessen en het maximaal aantal studenten per les.
--rooms.csv: Van alle lokalen de capaciteit.
--studentenenvakken.csv: De studenten met studentnummer en de vakken die ze volgen.
+-courses.csv: Holds the amount of classes and maximum amount of students per activity for each 
+			  course.
+-rooms.csv: Capacity of all classrooms.
+-studentenenvakken.csv: The students with their student numbers and their classes.

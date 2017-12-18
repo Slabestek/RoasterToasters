@@ -1,3 +1,3 @@
 # Templates
 
-Hierin wordt het gemaakte rooster gevisualiseerd. Dit kan worden aangroepen in main.py.
+The created schedule is visualized here. This can be called in main.py.
