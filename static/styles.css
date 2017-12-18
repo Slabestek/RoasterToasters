@@ -1,61 +1,61 @@
 /* Stylesheet - styles.css */
 
+/* style for 'RoasterToaster' text */
 #bigTitle {
+	position: relative;
+	top: 20px;
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid transparent;
 }
 
-/*#roosterTable {
-	border: 1px solid black;
-	position: relative;
-	top: 50px;
-}*/
+body {
+	/* fancy gradient background color */
+	background: -webkit-linear-gradient(right, #1E1E1E, #3C3C3C, #1E1E1E);
 
+	/* text-color */
+    color: #FFECB6;
+}
+
+/* style for DIV with schedule in it */
 #roosterTable {
 	position: relative;
-	top: 50px;
+	top: 40px;
 	border: 1px solid black;
-	/*border-radius: 20px;*/
 }
 
+/* table style - fix border issues and assign width & height */
 table {
 	width: 100%;
 	border-collapse: collapse;
-	/*border: 1px solid black;*/
 	height: 100%;
 }
 
+/* padding and border style for table data and headers */
 td, th {
 	padding: 10px;
-	border: 1px solid black;
+	border: 1px solid #FFECB6;
 }
 
-td, tr {
-	border-right: 2px solid black;
-}
-
-table tr, td, th {
-	/*width: 18%*/
-	/*vertical-align: center;*/
-}
-
+/* style for the DIV's inside the outer table data -> the tables inside the big table */
 .tableInside {
 	margin: -11px;
 	border-collapse: collapse;
 	border: -1px;
 	height: 550px;
-	/*border: 5px solid red;*/
 }
 
+/* give slots in the table equal width / neat look */
 #roomTableSlot {
 	width: 30%;
 }
 
+/* assign color to table row and data borders */
 .tableInside tr, td {
-	/*border-bottom: 1px solid black*/
-	border: 1px solid black;
+	border: 1px solid #FFECB6;
 }
 
+/* equal height for table data -> neat look */
 .tableInside td {
+	/* workaround -> (1 / 7) for every cell */
 	height: 14.285714285714285714285714%;
 }
