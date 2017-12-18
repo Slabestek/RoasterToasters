@@ -1,4 +1,10 @@
-days = 5
-dayStrings = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
-timeslots = 4
-rooms = 7
+'''
+The scheduleRange function returns the days, timeslots, and rooms in a schedule.
+'''
+def scheduleRange():
+
+	days = 5
+	timeslots = 4
+	rooms = 7
+
+	return days, timeslots, rooms

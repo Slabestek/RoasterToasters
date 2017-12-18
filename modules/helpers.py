@@ -1,6 +1,9 @@
 import random
 from copy import deepcopy as deepcopy
 
+'''
+This swap function swaps two random activities in a schedule.
+'''
 def swapRoomSlot(activity1, activity2, scheduleList):
 
     day1 = activity1.day
@@ -18,6 +21,10 @@ def swapRoomSlot(activity1, activity2, scheduleList):
     scheduleList[day2][timeslot2][room2] = scheduleList[day1][timeslot1][room1]
     scheduleList[day1][timeslot1][room1] = temp
 
+'''
+The randomSchedule function can create a random schedule when called. Activities are placed at 
+random in a schedule matrix. 
+'''
 def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
 
     random.shuffle(activities)
@@ -29,7 +36,6 @@ def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
     for day in range(days):
         for timeslot in range(timeslots):
             for room in range(rooms):
-                # print(day, timeslot, room)
                 rngSchedule[day][timeslot][room] = activities[counter]
                 counter += 1
                 if counter > lengthActivities:
@@ -38,8 +44,5 @@ def randomSchedule(scheduleList, days, timeslots, rooms, activities, roomObj):
                     acounter += 1
                     rngSchedule[day][timeslot][room].roomChange(
                         roomObj[room], room, day, timeslot)
-                    # print(scheduleList[day][timeslot][room])
-            # length += len(scheduleList[day][timeslot])
     return rngSchedule
-    # print(nonecount, counter)
-    # print(l, length)
+
