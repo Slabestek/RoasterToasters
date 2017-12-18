@@ -6,9 +6,9 @@
 	<head>
 
 		<link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet"/>
-
+		<link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico">
 		<title>
-			RoasterToasters!
+			RoasterToasters! 
 		</title>
 
 	</head>
@@ -45,10 +45,13 @@
 								{% for room in range(numRooms) %}
 								<tr>
 									<td id = "roomTableSlot">	
-										{{ coursePrint[day][timeslot][room].room.name if coursePrint[day][timeslot][room].room }}
+										{{ coursePrint[day][timeslot][
+											room].room.name if coursePrint[day][timeslot][
+											room].room }}
 									</td>
 									<td>
-										{{ coursePrint[day][timeslot][room] if coursePrint[day][timeslot][room] }}
+										{{ coursePrint[day][timeslot][room] if coursePrint[
+											day][timeslot][room] }}
 									</td>
 								</tr>
 								{% endfor %}

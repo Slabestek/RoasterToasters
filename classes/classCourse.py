@@ -34,14 +34,16 @@ class Course:
 				if remainder == 0:
 					seminars = (self.studentAmount / self.seminarCap) * self.seminar
 				else:
-					seminars = (((self.studentAmount - remainder) / self.seminarCap) + 1) * self.seminar
+					seminars = (((self.studentAmount - remainder) / self.seminarCap) + 1) * \
+						self.seminar
 		if self.practical > 0:
 			if self.studentAmount > self.practicalCap:
 				remainder = self.studentAmount % self.practicalCap
 				if remainder == 0:
 					practicals = (self.studentAmount / self.practicalCap) * self.practical
 				else:
-					practicals = (((self.studentAmount - remainder) / self.practicalCap) + 1) * self.practical
+					practicals = (((self.studentAmount - remainder) / self.practicalCap) + 1) * \
+						self.practical
 		self.seminars = seminars
 		self.practicals = practicals
 
@@ -53,5 +55,3 @@ class Course:
 	'''
 	def enrollCourse(self, classObject):
 		self.studentNumbers[classObject.studentNumber] = classObject
-
-	# def addActivities

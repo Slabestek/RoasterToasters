@@ -20,7 +20,7 @@ body {
 #roosterTable {
 	position: relative;
 	top: 40px;
-	border: 1px solid black;
+	border: 1px solid #FFECB6;
 }
 
 /* table style - fix border issues and assign width & height */
@@ -42,6 +42,10 @@ td, th {
 	border-collapse: collapse;
 	border: -1px;
 	height: 550px;
+}
+
+.tableInside {
+	border: 2px solid #FF9A00;
 }
 
 /* give slots in the table equal width / neat look */

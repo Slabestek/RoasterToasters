@@ -8,10 +8,10 @@ from modules.score import (
 import csv
 
 '''
-Random Walk algorithm. 
-Generates a random schedule by swapping random room slots without taking the score into account.
+Random Walk algorithm.
+Generates a random schedule by swapping random room slots without taking the
+score into account.
 '''
-
 def randomWalk(rngSchedule, activities, i, courses, students):
 
     with open('randomWalk' + str(i) + 'iter.csv', 'w', newline = '') as csvfile:
@@ -32,5 +32,5 @@ def randomWalk(rngSchedule, activities, i, courses, students):
 
             swapRoomSlot(randList[0], randList[1], rngSchedule)
             scoreWriter.writerow([Score])
-            
+
     return rngSchedule
