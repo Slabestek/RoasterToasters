@@ -15,7 +15,7 @@ from math import exp
 import csv
 
 
-def annealedSim(rngSchedule, activities, courses, iters, students):
+def annealedSim(rngSchedule, activities, courses, students):
 
     with open('simAnnealing.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
