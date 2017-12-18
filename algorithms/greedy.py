@@ -1,7 +1,6 @@
 
 
 
-
 def greedyRoast(courses, scheduleList, roomObjects):
 
 	for key, course in courses.items():
@@ -27,11 +26,11 @@ def greedyRoast(courses, scheduleList, roomObjects):
 						bestRoom = None
 						for room in roomObjects:
 							if room in fullRooms:
-								print('full')
+								print('full-1')
 								continue
 							amountStudents = len(activity.studentNumbers)
 							if amountStudents > room.cap:
-								print('too small')
+								print('too small-1')
 								continue
 							if bestRoom == None:
 								bestRoom = room
@@ -39,17 +38,17 @@ def greedyRoast(courses, scheduleList, roomObjects):
 							elif bestRoom.cap > room.cap:
 								bestRoom = room
 								roomIndex = roomCount
-								print('found a good one')
+								print('found a good one-1')
 							roomCount += 1
 
 						for timeslot in range(timeslots):
 							if bestRoom:
-								print('imma put ma room in yo schedhole')
+								print('imma put ma room in yo schedhole-1')
 								print(day)
 								if str(day)+str(timeslot) in bestRoom.full:
 									scheduleList[day][timeslot][roomIndex]
 									roomChange(room, roomIndex, day, timeslot)
-									print('placed activity')
+									print('placed activity-1')
 								else:
 									fullRooms.append(room)
 						if roomCount == 0:
@@ -69,28 +68,29 @@ def greedyRoast(courses, scheduleList, roomObjects):
 						bestRoom = None
 						for room in roomObjects:
 							if room in fullRooms:
-								print('full')
+								print('full-2')
 								continue
 							amountStudents = len(activity.studentNumbers)
 							if amountStudents > room.cap:
-								print('too small')
+								print('too small-2')
 								continue
 							if bestRoom == None:
 								bestRoom = room
 								roomIndex = roomCount
 							elif bestRoom.cap > room.cap:
-								print('found a good one')
+								print('found a good one-2')
 								bestRoom = room
 								roomIndex = roomCount
 							roomCount += 1
 
 						for timeslot in range(timeslots):
 							if bestRoom:
-								print('imma put ma room in yo schedhole')
+								print('imma put ma room in yo schedhole-2')
 								if str(day)+str(timeslot) in bestRoom.full:
+								# if bestRoom.full[str(day)+str(timeslot)]:
 									scheduleList[day][timeslot][roomIndex]
 									roomChange(room, roomIndex, day, timeslot)
-									print('placed activity')
+									print('placed activity-2')
 								else:
 									fullRooms.append(room)
 						if roomCount == 0:
