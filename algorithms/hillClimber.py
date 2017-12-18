@@ -13,7 +13,7 @@ results in a lower score it 'discards' the swap and continues to the next swap. 
 schedule will become better and better eventually.
 '''
 def climbHill(rngSchedule, activities, i, courses, students):
-
+    
     with open('hillClimb' + str(i) + 'iter.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
 

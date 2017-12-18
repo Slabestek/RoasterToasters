@@ -8,7 +8,6 @@ csvCourse = []
 csvStudents = []
 csvRooms = []
 
-
 coursesFile = './data/courses.csv'
 studentsFile = './data/studentenenvakken.csv'
 roomsFile = './data/rooms.csv'

@@ -20,6 +20,7 @@ class Activity:
 	 students because they are only taken once.
 	'''
 	def __repr__(self):
+
 		multipleInstance = 2
 		if self.course == 'No Class':
 			return self.course
@@ -33,6 +34,7 @@ class Activity:
 	students also get the activity in their list of activities.
 	'''
 	def enrollActivity(self, studentObject):
+		
 		self.studentNumbers[studentObject.studentNumber] = studentObject
 		studentObject.activities.append(self)
 
@@ -41,6 +43,7 @@ class Activity:
 	It also tells the room that it is now full.
 	'''
 	def roomChange(self, roomObject, roomIndex, day, timeslot):
+
 		self.room = roomObject
 		self.roomIndex = roomIndex
 		self.day = day
