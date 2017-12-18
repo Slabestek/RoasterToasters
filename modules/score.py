@@ -22,7 +22,6 @@ def validSchedule(rngSchedule):
 						score += 1000
 	return score
 
-
 '''
 Checks if students have multiple activities in the same timeslot and gives one minus 
 point per extra activity in a timeslot. 
@@ -43,7 +42,6 @@ def doubleStudent(students):
 			if count > 1:
 				score -= count
 	return score
-
 
 '''
 Checks if students have multiple activities in the same timeslot and gives one minus 
@@ -67,7 +65,6 @@ def doubleStudent2(rngSchedule):
 										score -= 1
 	return score
 
-
 '''
 Checks if there are too many students in a room and gives minus one point per extra student.
 '''
@@ -83,7 +80,6 @@ def extraStudent(rngSchedule):
 				if studentLength > roomCap:
 					score -= studentLength - roomCap
 	return score
-
 
 '''
 Checks if different activities from the same course are not placed on the same day
@@ -115,7 +111,6 @@ def scheduleSpread(rngSchedule):
 										if category1 == 'seminar' and category2 == 'practical':
 											score -= 10
 	return score
-
 
 '''
 Checks if activities are evenly spread over the week. If they are, 20 points are given.
@@ -173,7 +168,6 @@ def bonusPoints(courses, activities):
 													and activity3 == thu and activity4 == fri:
 												score += 20
 	return score / 2
-
 
 '''
 Adds up all score functions.
