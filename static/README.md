@@ -1,3 +1,4 @@
 # Static
 
-styles.css zorgt voor de opmaak van het rooster.
+styles.css holds the CSS code/styling for the rooster.html webpage. It makes the 
+visualisation look fancier.
