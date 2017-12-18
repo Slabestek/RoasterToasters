@@ -1,6 +1,9 @@
-
-
-
+'''
+This algorithm is a work in progress. We did not have enough time to finish it,
+but we tried. It works by selecting the best possible room for an activity,
+prioritizing a tight as possible capacity. Then it finds a timeslot and a day,
+where that room is empty.
+'''
 def greedyRoast(courses, scheduleList, roomObjects):
 
 	for key, course in courses.items():
@@ -9,12 +12,10 @@ def greedyRoast(courses, scheduleList, roomObjects):
 		prevCategory = ''
 		roomIndex = 0
 		roomCount = 0
-		# als het 5 activiteiten zijn
-		# print(day)
+
 		if course.numActivity == 5:
-			# stop activiteiten in mon, tue, wed, thu, fri
-			# loop door die activiteiten
-			# print(day)
+
+
 			for activity in course.activities:
 				# als die activiteit meerdere keren gegeven wordt
 				# print(day)
