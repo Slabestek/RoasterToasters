@@ -3,7 +3,6 @@ This class contains attributes and methods for activities.
 The __init__ has default values for all attributes that are initialized, so
 we can make empty activity objects
 '''
-
 class Activity:
     def __init__(self, course = 'No Class', category = '',
                 amount = 0, label = None):
@@ -21,9 +20,10 @@ class Activity:
      students because they are only taken once.
     '''
     def __repr__(self):
+    	multipleInstance = 2
         if self.course == 'No Class':
             return self.course
-        elif self.amount < 2:
+        elif self.amount < multipleInstance:
             return self.course.name + ' (' + self.category + ')'
         else:
             return self.course.name + ' (' + self.category + ' ' + str(self.label) + ')'
