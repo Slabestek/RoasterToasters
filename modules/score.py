@@ -132,7 +132,15 @@ def bonusPoints(courses, activities):
 												score += 20
 	return score / 2
 
+def score(rngSchedule, courses, activities, students):
+    score = 0
+    score += bonusPoints(courses, activities)
+    score += scheduleSpread(rngSchedule)
+    score += extraStudent(rngSchedule)
+    score += doubleStudent(students)
+    score += validSchedule(rngSchedule)
 
+    return score
 		# 	count += 1
 		# 	# print(count)
 		# print(activity)

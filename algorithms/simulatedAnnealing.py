@@ -2,10 +2,7 @@ from random import randint, random
 from modules.helpers import swapRoomSlot as swapRoomSlot
 from modules.helpers import randomSchedule as randomSchedule
 from modules.scheduleRange import days, timeslots, rooms
-from modules.score import (
-    extraStudent, validSchedule,
-    doubleStudent, scheduleSpread, bonusPoints
-)
+from modules.score import score
 from math import exp
 import csv
 
@@ -15,6 +12,7 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
     with open('simAnnealing.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
 
+        oldScore = score(rngSchedule, courses, activities, students)
         temp = 10000
         coolingRate = 0.003
         randObj = 2
@@ -36,19 +34,17 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
             # rRoom1 = randint(0, (rooms - 1))
             # object2 = rngSchedule[rDay1][rTime1][rRoom1]
 
-            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
-            score1 = v + e + d + s + b
-
             swapRoomSlot(randList[0], randList[1], rngSchedule)
 
-            v2, e2, d2, s2, b2 = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
-            score2 = v2 + e2 + d2 + s2 + b2
-            probability = acceptProbability(score1, score2, temp)
+            newScore = score(rngSchedule, courses, activities, students)
+
+            probability = acceptProbability(oldScore, newScore, temp)
             if probability < random():
                 swapRoomSlot(randList[0], randList[1], rngSchedule)
-                scoreWriter.writerow(['oldScore', score1, temp])
+                scoreWriter.writerow([oldScore, temp, probability])
             else:
-                scoreWriter.writerow(['newScore', score2, temp])
+                scoreWriter.writerow([newScore, temp, probability])
+                oldScore = newScore
 
             temp *= 1-coolingRate
             itercount += 1
@@ -66,4 +62,4 @@ def acceptProbability(oldScore, newScore, temp):
     if newScore > oldScore:
         return 1.0
     else:
-        return (exp((oldScore - newScore) / temp)) - 1
+        return 1 / (1 + (exp((newScore - oldScore) / temp)))
