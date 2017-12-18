@@ -3,13 +3,12 @@ from modules.helpers import swapRoomSlot as swapRoomSlot
 from modules.helpers import randomSchedule as randomSchedule
 from modules.scheduleRange import days, timeslots, rooms
 from modules.score import (
-    extraStudent, validSchedule,
-    doubleStudent, scheduleSpread, bonusPoints
+    score
 )
 import csv
 
 
-def climbHill(rngSchedule, activities, i, courses, students):
+def randomWalk(rngSchedule, activities, i, courses, students):
 
     with open('randomWalk' + str(i) + 'iter.csv', 'w', newline = '') as csvfile:
         scoreWriter = csv.writer(csvfile)
@@ -25,11 +24,10 @@ def climbHill(rngSchedule, activities, i, courses, students):
                 rRoom = randint(0, (rooms - 1))
                 randList.append(rngSchedule[rDay][rTime][rRoom])
 
-            v, e, d, s, b = validSchedule(rngSchedule), extraStudent(rngSchedule), doubleStudent(rngSchedule, students), scheduleSpread(rngSchedule), bonusPoints(courses, activities)
-            score1 = v + e + d + s 
+            Score = score(rngSchedule, courses, activities, students)
 
             swapRoomSlot(randList[0], randList[1], rngSchedule)
-            scoreWriter.writerow([score1])
+            scoreWriter.writerow([Score])
             
     # scoreWriter.writerow([rngSchedule])
     return rngSchedule
