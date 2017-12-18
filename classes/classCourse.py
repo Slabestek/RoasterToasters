@@ -53,5 +53,3 @@ class Course:
 	'''
 	def enrollCourse(self, classObject):
 		self.studentNumbers[classObject.studentNumber] = classObject
-
-	# def addActivities
