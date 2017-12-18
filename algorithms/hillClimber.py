@@ -5,6 +5,13 @@ from modules.scheduleRange import days, timeslots, rooms
 from modules.score import score
 import csv
 
+"""  
+Hillclimber algorithm. 
+Writes data to a CSV file, generates a random schedule and then starts swapping room slots.
+If a swap results in a higher score, the swap stays and it continues to the next swap. If the swap
+results in a lower score it 'discards' the swap and continues to the next swap. This way, the
+schedule will become better and better eventually.
+"""
 
 def climbHill(rngSchedule, activities, i, courses, students):
 
@@ -29,7 +36,6 @@ def climbHill(rngSchedule, activities, i, courses, students):
             if newScore > oldScore:
                 scoreWriter.writerow([newScore])
                 oldScore = newScore
-                # print(score2, _)
             else:
                 scoreWriter.writerow([oldScore])
                 swapRoomSlot(randList[0], randList[1], rngSchedule)
