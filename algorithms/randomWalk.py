@@ -7,6 +7,10 @@ from modules.score import (
 )
 import csv
 
+'''
+Random Walk algorithm. 
+Generates a random schedule by swapping random room slots without taking the score into account.
+'''
 
 def randomWalk(rngSchedule, activities, i, courses, students):
 
