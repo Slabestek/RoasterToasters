@@ -9,7 +9,6 @@ from modules.helpers import (
 from modules.init import (
     createObjects, enrollStudent, fillActivities, emptySchedule
 )
-from terminaltables import AsciiTable
 from modules.scheduleRange import (
     days, timeslots
 )

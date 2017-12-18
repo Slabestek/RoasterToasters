@@ -1,3 +1,5 @@
+{# HTML code with Jinja to visualize a schedule in a table. #}
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -31,7 +33,6 @@
 					<th>Thursday</th>
 					<th>Friday</th>
 				</tr>
-
 				{% for timeslot in range(timeslots) %}
 				<tr>
 					<td>{{ 7 + (loop.index * 2) }}:00 - {{ 9 + (loop.index * 2)}}:00</td>
