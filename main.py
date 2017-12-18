@@ -45,7 +45,6 @@ annealedSim(rngSchedule, activities, courses, students)
 randomWalk(rngSchedule, activities, 100, courses, students)
 
 
-
 app = Flask(__name__)
 
 @app.route("/")
