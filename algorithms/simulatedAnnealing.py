@@ -1,3 +1,8 @@
+'''
+This is a hillclimber that utilizes simulated annealing. Because we want to
+'''
+
+
 from random import randint, random
 from modules.helpers import swapRoomSlot as swapRoomSlot
 from modules.helpers import randomSchedule as randomSchedule
@@ -13,14 +18,15 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
         scoreWriter = csv.writer(csvfile)
 
         oldScore = score(rngSchedule, courses, activities, students)
-        temp = 10000
-        coolingRate = 0.003
+        temp = 100
+        coolingRate = 0.0001
         randObj = 2
-        tempJumps = 1
+        convergence = 0
+        tempJumps = 0
 
         # calc score1
         itercount = 0
-        while itercount < iters:
+        while temp > 1:
 
             randList = []
             for i in range(randObj):
@@ -42,16 +48,22 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
             if probability < random():
                 swapRoomSlot(randList[0], randList[1], rngSchedule)
                 scoreWriter.writerow([oldScore, temp, probability])
+                convergence += 1
             else:
                 scoreWriter.writerow([newScore, temp, probability])
                 oldScore = newScore
+                convergence = 0
 
             temp *= 1-coolingRate
-            itercount += 1
+            # itercount += 1
 
-            if itercount == 1000 * tempJumps:
-                temp = 10000
-                tempJumps += 1
+
+            if tempJumps < 3:
+                if convergence >= 30:
+                    temp = 20
+                    tempJumps += 1
+
+
 
 
     return rngSchedule
@@ -59,7 +71,9 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
 
 def acceptProbability(oldScore, newScore, temp):
 
-    if newScore > oldScore:
-        return 1.0
-    else:
-        return 1 / (1 + (exp((newScore - oldScore) / temp)))
+    # if newScore > oldScore:
+    #     return 1.0
+    # else:
+    return 1 / (1 + (exp((oldScore - newScore) / temp)))
+
+    # exp(oldScore - newScore) / temp
