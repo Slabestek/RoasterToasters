@@ -1,8 +1,11 @@
 '''
-This is a hillclimber that utilizes simulated annealing. Because we want to
+This is a hillclimber that utilizes simulated annealing. Two activities are
+chosen to swap randomly, after which the new score is calculated. The new score
+is compared to the old score and with that we calculate a probability. Depending
+on temperature and discrepancy between scores, that probability will be higher
+or lower. After some amount of convergence, the temperature is set to a higher
+value. It writes the scores and temperature to a csv file.
 '''
-
-
 from random import randint, random
 from modules.helpers import swapRoomSlot as swapRoomSlot
 from modules.helpers import randomSchedule as randomSchedule
@@ -24,8 +27,6 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
         convergence = 0
         tempJumps = 0
 
-        # calc score1
-        itercount = 0
         while temp > 1:
 
             randList = []
@@ -59,7 +60,7 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
 
 
             if tempJumps < 3:
-                if convergence >= 30:
+                if convergence >= 30 and temp < 2:
                     temp = 20
                     tempJumps += 1
 
@@ -71,9 +72,4 @@ def annealedSim(rngSchedule, activities, courses, iters, students):
 
 def acceptProbability(oldScore, newScore, temp):
 
-    # if newScore > oldScore:
-    #     return 1.0
-    # else:
     return 1 / (1 + (exp((oldScore - newScore) / temp)))
-
-    # exp(oldScore - newScore) / temp
